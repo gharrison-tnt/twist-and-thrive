@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fractional Strategy Partner — Copper Table Massage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --sand: #F5F0E8; --sand-mid: #EDE6D6; --bark: #6B5C4E; --earth: #5C4A3A;
+      --deep: #2E2318; --cream: #FAF7F2; --accent: #4A9B8A; --accent-light: #6ABCB0;
+      --accent-pale: #E2F3F1; --gold: #C4A882; --light-line: rgba(92,74,58,0.12);
+    }
+    body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--deep); max-width: 900px; margin: 0 auto; padding: 4rem 3rem; }
+    .doc-header { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 2rem; border-bottom: 1px solid var(--light-line); margin-bottom: 3rem; }
+    .doc-brand { font-family: 'Cormorant Garamond', serif; font-size: 1rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--earth); }
+    .doc-brand span { display: block; font-family: 'Jost', sans-serif; font-size: 0.6rem; font-weight: 500; letter-spacing: 0.2em; color: var(--accent); margin-top: 0.25rem; text-transform: uppercase; }
+    .doc-meta { text-align: right; font-size: 0.7rem; font-weight: 300; color: var(--bark); line-height: 1.9; letter-spacing: 0.06em; }
+    .doc-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; line-height: 1.1; color: var(--deep); margin-bottom: 0.6rem; }
+    .doc-title em { font-style: italic; color: var(--accent); }
+    .doc-subtitle { font-size: 0.82rem; font-weight: 300; color: var(--bark); line-height: 1.7; max-width: 560px; margin-bottom: 3rem; }
+    .eyebrow { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+    .section { margin-bottom: 3rem; }
+    .section-heading { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--earth); margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--light-line); }
+    p { font-size: 0.82rem; font-weight: 300; line-height: 1.8; color: var(--earth); margin-bottom: 0.75rem; }
+    .callout { background: var(--accent-pale); border-left: 3px solid var(--accent); padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+    .callout p { color: var(--deep); font-weight: 400; margin: 0; }
+    .callout strong { color: var(--accent); }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin: 1.5rem 0; }
+    .card { background: var(--sand); padding: 1.5rem; }
+    .card-label { font-size: 0.58rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bark); margin-bottom: 0.5rem; }
+    .card-value { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--deep); line-height: 1; margin-bottom: 0.35rem; }
+    .card-value.accent { color: var(--accent); }
+    .card-desc { font-size: 0.72rem; font-weight: 300; color: var(--bark); line-height: 1.6; }
+    .table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.78rem; }
+    .table th { font-size: 0.58rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--bark); padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--light-line); text-align: left; }
+    .table td { padding: 0.75rem; border-bottom: 1px solid var(--light-line); color: var(--earth); font-weight: 300; vertical-align: top; }
+    .table tr:last-child td { border-bottom: none; }
+    .table td.highlight { color: var(--accent); font-weight: 500; }
+    .pill { display: inline-block; font-size: 0.58rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25rem 0.65rem; background: var(--accent-pale); color: var(--accent); }
+    .pill.warm { background: #FDF3E4; color: #B8873A; }
+    .pill.alert { background: #FDEAEA; color: #B83A3A; }
+    .doc-footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--light-line); display: flex; justify-content: space-between; align-items: center; }
+    .doc-footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; letter-spacing: 0.1em; color: var(--bark); }
+    .doc-footer-note { font-size: 0.62rem; font-weight: 300; color: var(--bark); opacity: 0.7; letter-spacing: 0.06em; }
+    .action-list { list-style: none; margin: 1rem 0; }
+    .action-list li { display: flex; gap: 1rem; align-items: flex-start; padding: 0.85rem 0; border-bottom: 1px solid var(--light-line); font-size: 0.8rem; font-weight: 300; color: var(--earth); line-height: 1.6; }
+    .action-list li:last-child { border-bottom: none; }
+    .action-num { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; color: var(--accent); line-height: 1; min-width: 1.8rem; }
+    .divider { height: 1px; background: var(--light-line); margin: 2rem 0; }
+    @media print { body { padding: 2rem; } }
+  </style>
+</head>
+<body>
+
+  <div class="doc-header">
+    <div class="doc-brand">Twist &amp; Thrive Consulting
+      <span>Sample Deliverable</span>
+    </div>
+    <div class="doc-meta">
+      Fractional Strategy Partnership<br>
+      Copper Table Massage<br>
+      Lafayette, CO · Q3 2025
+    </div>
+  </div>
+
+  <p class="eyebrow">90-Day Strategy Plan</p>
+  <h1 class="doc-title">A strategic partner<br><em>in your corner.</em></h1>
+  <p class="doc-subtitle">This is the working document from Month 1 of an ongoing Fractional Strategy engagement — showing the planning cadence, active priorities, decisions made, and what's being tracked.</p>
+
+  <div class="section">
+    <p class="eyebrow">Where We Started</p>
+    <h2 class="section-heading">The state of the business at engagement start</h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-label">Situation</div>
+        <div class="card-desc" style="font-size:0.8rem; line-height:1.9; margin-top:0.5rem;">
+          Revenue: $14,200/mo average (inconsistent)<br>
+          Team: Owner + 2 contractors<br>
+          Bottleneck: Owner doing all admin, marketing, and client work<br>
+          Mood: "I built a job, not a business"<br>
+          Primary ask: Help me stop being the ceiling
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">90-Day Goal</div>
+        <div class="card-desc" style="font-size:0.8rem; line-height:1.9; margin-top:0.5rem;">
+          Revenue: $18,000/mo by Day 90<br>
+          Owner hours: -8 hrs/week in admin<br>
+          New system: Contractor onboarding SOP complete<br>
+          New system: Automated intake + follow-up live<br>
+          Strategic decision: Expansion path chosen (2nd location vs. associate model)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="eyebrow">Monthly Cadence</p>
+    <h2 class="section-heading">How we work together</h2>
+    <table class="table">
+      <thead>
+        <tr><th>Meeting</th><th>Frequency</th><th>Duration</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="highlight">Strategy Session</td>
+          <td>Monthly</td>
+          <td>75 min</td>
+          <td>Review metrics, set priorities, make decisions on open questions</td>
+        </tr>
+        <tr>
+          <td class="highlight">Check-In Call</td>
+          <td>Biweekly</td>
+          <td>30 min</td>
+          <td>Unblock issues, pressure-test in-progress decisions, accountability</td>
+        </tr>
+        <tr>
+          <td class="highlight">Async Support</td>
+          <td>Ongoing</td>
+          <td>As needed</td>
+          <td>Email/Slack for quick questions, document review, copy feedback</td>
+        </tr>
+        <tr>
+          <td class="highlight">Quarterly Review</td>
+          <td>Every 90 days</td>
+          <td>2 hrs</td>
+          <td>Full business review, metrics vs. targets, new 90-day plan</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <p class="eyebrow">Active Priorities — Month 1</p>
+    <h2 class="section-heading">What we're working on right now</h2>
+    <ul class="action-list">
+      <li>
+        <span class="action-num">1</span>
+        <div>
+          <strong>Contractor SOP — In Progress</strong> <span class="pill" style="margin-left:0.5rem;">Due: Week 3</span><br>
+          Owner is currently onboarding new therapists by shadowing and memory. Building a written onboarding doc and intake training module so the owner isn't the bottleneck for every new hire. Estimated owner time saved: 6 hrs per new contractor.
+        </div>
+      </li>
+      <li>
+        <span class="action-num">2</span>
+        <div>
+          <strong>Intake Automation — Complete</strong> <span class="pill" style="margin-left:0.5rem;">Done</span><br>
+          Jane App intake forms activated and connected. Auto-reminder sequence live for all new bookings. Owner reports saving ~90 minutes per week already. Next: build the post-visit follow-up sequence.
+        </div>
+      </li>
+      <li>
+        <span class="action-num">3</span>
+        <div>
+          <strong>Expansion Decision — Framing Phase</strong> <span class="pill warm" style="margin-left:0.5rem;">Month 2</span><br>
+          Owner wants to grow but unsure whether to open a second location or hire a lead associate and stay in one space. Building a simple financial model comparing both paths. Decision target: Month 2 strategy session.
+        </div>
+      </li>
+      <li>
+        <span class="action-num">4</span>
+        <div>
+          <strong>Pricing Review — Scheduled</strong> <span class="pill warm" style="margin-left:0.5rem;">Month 2</span><br>
+          Current rates are 18% below market median. Will complete comp analysis and present new rate structure options at Month 2 session. Goal: increase average revenue per client without losing volume.
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <p class="eyebrow">Decisions Log</p>
+    <h2 class="section-heading">What we decided — and why</h2>
+    <table class="table">
+      <thead>
+        <tr><th>Decision</th><th>What We Chose</th><th>Rationale</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Booking platform</td>
+          <td class="highlight">Stay on Jane, activate unused features</td>
+          <td>Switching costs outweigh gains — same capabilities available now at $0 incremental cost</td>
+        </tr>
+        <tr>
+          <td>Marketing focus</td>
+          <td class="highlight">Google reviews + referral (not paid ads)</td>
+          <td>Current 3.9 star rating is suppressing organic traffic. Fix trust before spending on acquisition.</td>
+        </tr>
+        <tr>
+          <td>First hire</td>
+          <td class="highlight">Part-time admin contractor (10 hrs/week)</td>
+          <td>Frees owner for revenue-generating work. ROI positive at any rate under $35/hr given current hourly value.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <p><strong>Month 1 result:</strong> 3 decisions made that were stalled for 6+ months. 1.5 hrs/week returned to owner already. Expansion financial model in progress. Owner's words: "I finally feel like someone else is thinking about the business with me."</p>
+  </div>
+
+  <div class="doc-footer">
+    <div class="doc-footer-brand">Twist &amp; Thrive Consulting</div>
+    <div class="doc-footer-note">Confidential · Sample deliverable for illustration purposes · consultwithatwist@gmail.com</div>
+  </div>
+
+</body>
+</html>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -288,6 +287,41 @@
       position: relative;
     }
 
+    .services-intro {
+      padding: 2.5rem 0 1.5rem;
+      border-top: 1px solid var(--light-line);
+    }
+    .services-intro-eyebrow {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .services-intro-line {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+      font-weight: 300;
+      color: var(--deep);
+      font-style: italic;
+    }
+    .sample-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-light);
+      padding-bottom: 0.1rem;
+      margin-top: 1rem;
+      transition: gap 0.2s, color 0.2s;
+    }
+    .sample-link:hover { gap: 0.65rem; color: var(--accent-light); border-color: var(--accent-light); }
     .service-number {
       font-family: 'Cormorant Garamond', serif;
       font-size: 2.5rem;
@@ -741,36 +775,46 @@
         Most small service businesses are losing 20–40% of potential revenue to friction they can't see — missed follow-ups, inefficient workflows, tech gaps. We find exactly where that's happening and hand you a clear roadmap to fix it fast.
       </p>
     </div>
+    <div class="services-intro reveal">
+      <p class="services-intro-eyebrow">Sound familiar?</p>
+      <p class="services-intro-line">Pick the one keeping you up at night.</p>
+    </div>
     <div class="services-grid reveal">
       <div class="service-card">
         <div class="service-number">01</div>
         <div class="service-name">Business Clarity Audit</div>
-        <div class="service-desc">Most small service businesses are bleeding revenue through gaps they can't see. In one focused hour, I identify 3 specific areas where you're losing money or time — missed follow-ups, workflow friction, tech gaps — and hand you a written roadmap to fix them fast. This is where we start.</div>
+        <div class="service-desc">You're busy but not sure where the money is actually going. In one focused hour I dig into your workflows, follow-up gaps, and tech stack — then hand you a written report naming exactly 3 places you're leaking revenue and what to do about each one. <em>This is where we start.</em></div>
+        <a href="sample-01-clarity-audit.html" target="_blank" class="sample-link">See a sample report →</a>
       </div>
       <div class="service-card">
         <div class="service-number">02</div>
         <div class="service-name">Go-To-Market Strategy</div>
-        <div class="service-desc">We design your path to market: offer structure, customer journey, competitive differentiation, and the channels that actually reach your buyer.</div>
+        <div class="service-desc">You built something good but can't get traction — or you're busy but attracting the wrong clients. I map your ideal buyer, sharpen your positioning, identify the channels where they actually show up, and build the offer structure that converts. No more guessing which move to make next.</div>
+        <a href="sample-02-gtm-strategy.html" target="_blank" class="sample-link">See a sample report →</a>
       </div>
       <div class="service-card">
         <div class="service-number">03</div>
-        <div class="service-name">AI Integration &amp; Automation</div>
-        <div class="service-desc">Practical AI tools for small businesses — intake, scheduling, follow-up, content. We identify what saves you time and set it up to fit how you work.</div>
+        <div class="service-name">AI &amp; Automation</div>
+        <div class="service-desc">You're manually sending follow-up emails, copying data between tools, and doing work a system should handle. I identify which parts of your day are automatable, implement the right tools — scheduling, intake, follow-up, reporting — and make sure they actually work the way your business works.</div>
+        <a href="sample-03-automation.html" target="_blank" class="sample-link">See a sample report →</a>
       </div>
       <div class="service-card">
         <div class="service-number">04</div>
         <div class="service-name">Pricing Optimization</div>
-        <div class="service-desc">Redesign your offer structure, membership tiers, and packaging to reflect the true value you deliver — and capture more of it.</div>
+        <div class="service-desc">You've been charging the same rates for two years and you're afraid to raise them. I run a competitive gap analysis, model subscription and tiered pricing structures, and help you repackage your offers so the value is obvious — and clients stop pushing back on price.</div>
+        <a href="sample-04-pricing.html" target="_blank" class="sample-link">See a sample report →</a>
       </div>
       <div class="service-card">
         <div class="service-number">05</div>
-        <div class="service-name">Customer Success Design</div>
-        <div class="service-desc">Build the systems that turn first-time clients into loyal advocates — from onboarding flows to retention cadences and lifecycle strategy.</div>
+        <div class="service-name">Client Retention Systems</div>
+        <div class="service-desc">You do great work but clients disappear after their first engagement — there's no system keeping them. I design your onboarding flow, check-in cadence, and re-engagement triggers so clients feel taken care of, refer others, and come back. Repeat revenue without the hustle.</div>
+        <a href="sample-05-retention.html" target="_blank" class="sample-link">See a sample report →</a>
       </div>
       <div class="service-card">
         <div class="service-number">06</div>
         <div class="service-name">Fractional Strategy Partner</div>
-        <div class="service-desc">Ongoing monthly engagement — a strategic partner in your corner without the cost of a full-time hire. Accountability, momentum, and expertise on demand.</div>
+        <div class="service-desc">You're making decisions alone — no sounding board, no one to pressure-test your thinking. I embed as your part-time strategic partner: monthly planning sessions, async support, and someone who knows your business and holds you accountable to the moves you've been putting off.</div>
+        <a href="sample-06-fractional.html" target="_blank" class="sample-link">See a sample report →</a>
       </div>
     </div>
   </section>

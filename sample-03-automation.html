@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI & Automation Audit — Peak State Physical Therapy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --sand: #F5F0E8; --sand-mid: #EDE6D6; --bark: #6B5C4E; --earth: #5C4A3A;
+      --deep: #2E2318; --cream: #FAF7F2; --accent: #4A9B8A; --accent-light: #6ABCB0;
+      --accent-pale: #E2F3F1; --gold: #C4A882; --light-line: rgba(92,74,58,0.12);
+    }
+    body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--deep); max-width: 900px; margin: 0 auto; padding: 4rem 3rem; }
+    .doc-header { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 2rem; border-bottom: 1px solid var(--light-line); margin-bottom: 3rem; }
+    .doc-brand { font-family: 'Cormorant Garamond', serif; font-size: 1rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--earth); }
+    .doc-brand span { display: block; font-family: 'Jost', sans-serif; font-size: 0.6rem; font-weight: 500; letter-spacing: 0.2em; color: var(--accent); margin-top: 0.25rem; text-transform: uppercase; }
+    .doc-meta { text-align: right; font-size: 0.7rem; font-weight: 300; color: var(--bark); line-height: 1.9; letter-spacing: 0.06em; }
+    .doc-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; line-height: 1.1; color: var(--deep); margin-bottom: 0.6rem; }
+    .doc-title em { font-style: italic; color: var(--accent); }
+    .doc-subtitle { font-size: 0.82rem; font-weight: 300; color: var(--bark); line-height: 1.7; max-width: 560px; margin-bottom: 3rem; }
+    .eyebrow { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+    .section { margin-bottom: 3rem; }
+    .section-heading { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--earth); margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--light-line); }
+    p { font-size: 0.82rem; font-weight: 300; line-height: 1.8; color: var(--earth); margin-bottom: 0.75rem; }
+    .callout { background: var(--accent-pale); border-left: 3px solid var(--accent); padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+    .callout p { color: var(--deep); font-weight: 400; margin: 0; }
+    .callout strong { color: var(--accent); }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin: 1.5rem 0; }
+    .card { background: var(--sand); padding: 1.5rem; }
+    .card-label { font-size: 0.58rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bark); margin-bottom: 0.5rem; }
+    .card-value { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--deep); line-height: 1; margin-bottom: 0.35rem; }
+    .card-value.accent { color: var(--accent); }
+    .card-desc { font-size: 0.72rem; font-weight: 300; color: var(--bark); line-height: 1.6; }
+    .table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.78rem; }
+    .table th { font-size: 0.58rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--bark); padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--light-line); text-align: left; }
+    .table td { padding: 0.75rem; border-bottom: 1px solid var(--light-line); color: var(--earth); font-weight: 300; vertical-align: top; }
+    .table tr:last-child td { border-bottom: none; }
+    .table td.highlight { color: var(--accent); font-weight: 500; }
+    .pill { display: inline-block; font-size: 0.58rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25rem 0.65rem; background: var(--accent-pale); color: var(--accent); }
+    .pill.warm { background: #FDF3E4; color: #B8873A; }
+    .pill.alert { background: #FDEAEA; color: #B83A3A; }
+    .doc-footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--light-line); display: flex; justify-content: space-between; align-items: center; }
+    .doc-footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; letter-spacing: 0.1em; color: var(--bark); }
+    .doc-footer-note { font-size: 0.62rem; font-weight: 300; color: var(--bark); opacity: 0.7; letter-spacing: 0.06em; }
+    .action-list { list-style: none; margin: 1rem 0; }
+    .action-list li { display: flex; gap: 1rem; align-items: flex-start; padding: 0.85rem 0; border-bottom: 1px solid var(--light-line); font-size: 0.8rem; font-weight: 300; color: var(--earth); line-height: 1.6; }
+    .action-list li:last-child { border-bottom: none; }
+    .action-num { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; color: var(--accent); line-height: 1; min-width: 1.8rem; }
+    .divider { height: 1px; background: var(--light-line); margin: 2rem 0; }
+    @media print { body { padding: 2rem; } }
+  </style>
+</head>
+<body>
+
+  <div class="doc-header">
+    <div class="doc-brand">Twist &amp; Thrive Consulting
+      <span>Sample Deliverable</span>
+    </div>
+    <div class="doc-meta">
+      AI &amp; Automation Audit<br>
+      Peak State Physical Therapy<br>
+      Louisville, CO · June 2025
+    </div>
+  </div>
+
+  <p class="eyebrow">Automation Opportunity Report</p>
+  <h1 class="doc-title">11 hours a week you<br><em>shouldn't be working.</em></h1>
+  <p class="doc-subtitle">A workflow audit identifying manual tasks that can be automated — with tool recommendations, implementation effort, and estimated time recovered per week.</p>
+
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-label">Hours/week manual work</div>
+      <div class="card-value">11.4</div>
+      <div class="card-desc">across intake, scheduling, follow-up, and billing tasks</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Hours recoverable</div>
+      <div class="card-value accent">8.5</div>
+      <div class="card-desc">with tools you likely already pay for but aren't using fully</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Annual value @ $120/hr</div>
+      <div class="card-value accent">$53K</div>
+      <div class="card-desc">in billable time or owner hours returned to your life</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="eyebrow">What We Found</p>
+    <h2 class="section-heading">Every manual task in your current workflow</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Current State</th>
+          <th>Time/Week</th>
+          <th>Automatable?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>New client intake forms</td>
+          <td>PDF emailed manually, scanned into EHR by hand</td>
+          <td>2.1 hrs</td>
+          <td class="highlight"><span class="pill">Yes — fully</span></td>
+        </tr>
+        <tr>
+          <td>Appointment reminders</td>
+          <td>Front desk calls 1 day prior</td>
+          <td>1.8 hrs</td>
+          <td class="highlight"><span class="pill">Yes — fully</span></td>
+        </tr>
+        <tr>
+          <td>Post-visit follow-up</td>
+          <td>None currently</td>
+          <td>—</td>
+          <td class="highlight"><span class="pill">Yes — new</span></td>
+        </tr>
+        <tr>
+          <td>Insurance verification</td>
+          <td>Manual call to each carrier</td>
+          <td>2.5 hrs</td>
+          <td><span class="pill warm">Partial</span></td>
+        </tr>
+        <tr>
+          <td>Review requests</td>
+          <td>Verbally asked at checkout — inconsistent</td>
+          <td>0.5 hrs</td>
+          <td class="highlight"><span class="pill">Yes — fully</span></td>
+        </tr>
+        <tr>
+          <td>Billing &amp; invoice follow-up</td>
+          <td>Manual emails sent ad hoc, no tracking</td>
+          <td>1.8 hrs</td>
+          <td class="highlight"><span class="pill">Yes — fully</span></td>
+        </tr>
+        <tr>
+          <td>Social media posting</td>
+          <td>Owner posting manually 3x/week</td>
+          <td>1.5 hrs</td>
+          <td class="highlight"><span class="pill">Yes — fully</span></td>
+        </tr>
+        <tr>
+          <td>Discharge planning notes</td>
+          <td>Dictated and typed manually</td>
+          <td>1.2 hrs</td>
+          <td><span class="pill warm">Partial (AI assist)</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <p class="eyebrow">Recommended Stack</p>
+    <h2 class="section-heading">Tools to implement — in priority order</h2>
+    <ul class="action-list">
+      <li><span class="action-num">1</span>
+        <div>
+          <strong>Jane App (or upgrade current EHR)</strong> — digital intake forms, automated reminders, online booking. Replaces 4+ hours of manual admin weekly. If already on Jane, 3 automations are inactive and need to be turned on. <span class="pill" style="margin-left:0.5rem;">High impact · Low effort</span>
+        </div>
+      </li>
+      <li><span class="action-num">2</span>
+        <div>
+          <strong>Zapier + Gmail</strong> — automated billing follow-up sequence triggered 3, 7, and 14 days after invoice sent. No new tool required — connects what you already have. Setup: 45 minutes. <span class="pill" style="margin-left:0.5rem;">High impact · Low effort</span>
+        </div>
+      </li>
+      <li><span class="action-num">3</span>
+        <div>
+          <strong>Birdeye or NiceJob</strong> — automated review request sent via SMS 24 hours post-visit. Shown to increase Google review volume by 3–5x in service businesses. Current Google rating: 4.1. Target: 4.6+ within 90 days. <span class="pill" style="margin-left:0.5rem;">Medium impact · Low effort</span>
+        </div>
+      </li>
+      <li><span class="action-num">4</span>
+        <div>
+          <strong>Buffer + Claude (AI draft)</strong> — batch-create 3 weeks of social content in one 90-minute session using AI-assisted drafting. Schedule via Buffer. Eliminates daily context-switching. <span class="pill" style="margin-left:0.5rem;">Medium impact · Low effort</span>
+        </div>
+      </li>
+      <li><span class="action-num">5</span>
+        <div>
+          <strong>Tali or Nuance DAX</strong> — AI-assisted clinical note dictation. Reduces documentation time by ~40%. Medium implementation lift — requires provider training and EHR integration check. <span class="pill warm" style="margin-left:0.5rem;">High impact · Medium effort</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <p><strong>Total estimated monthly tool cost: $87–$140.</strong> Total time recovered: 8.5 hours/week. At a conservative $60/hr owner value, that's $2,600/month in reclaimed capacity for a $100 investment.</p>
+  </div>
+
+  <div class="doc-footer">
+    <div class="doc-footer-brand">Twist &amp; Thrive Consulting</div>
+    <div class="doc-footer-note">Confidential · Sample deliverable for illustration purposes · consultwithatwist@gmail.com</div>
+  </div>
+
+</body>
+</html>

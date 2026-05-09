@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Business Clarity Audit — Evergreen Wellness Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --sand: #F5F0E8; --sand-mid: #EDE6D6; --bark: #6B5C4E; --earth: #5C4A3A;
+      --deep: #2E2318; --cream: #FAF7F2; --accent: #4A9B8A; --accent-light: #6ABCB0;
+      --accent-pale: #E2F3F1; --gold: #C4A882; --light-line: rgba(92,74,58,0.12);
+    }
+    body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--deep); max-width: 900px; margin: 0 auto; padding: 4rem 3rem; }
+    .doc-header { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 2rem; border-bottom: 1px solid var(--light-line); margin-bottom: 3rem; }
+    .doc-brand { font-family: 'Cormorant Garamond', serif; font-size: 1rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--earth); }
+    .doc-brand span { display: block; font-family: 'Jost', sans-serif; font-size: 0.6rem; font-weight: 500; letter-spacing: 0.2em; color: var(--accent); margin-top: 0.25rem; text-transform: uppercase; }
+    .doc-meta { text-align: right; font-size: 0.7rem; font-weight: 300; color: var(--bark); line-height: 1.9; letter-spacing: 0.06em; }
+    .doc-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; line-height: 1.1; color: var(--deep); margin-bottom: 0.6rem; }
+    .doc-title em { font-style: italic; color: var(--accent); }
+    .doc-subtitle { font-size: 0.82rem; font-weight: 300; color: var(--bark); line-height: 1.7; max-width: 560px; margin-bottom: 3rem; }
+    .eyebrow { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+    .section { margin-bottom: 3rem; }
+    .section-heading { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--earth); margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--light-line); }
+    p { font-size: 0.82rem; font-weight: 300; line-height: 1.8; color: var(--earth); margin-bottom: 0.75rem; }
+    .callout { background: var(--accent-pale); border-left: 3px solid var(--accent); padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+    .callout p { color: var(--deep); font-weight: 400; margin: 0; }
+    .callout strong { color: var(--accent); }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin: 1.5rem 0; }
+    .card { background: var(--sand); padding: 1.5rem; }
+    .card-label { font-size: 0.58rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bark); margin-bottom: 0.5rem; }
+    .card-value { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--deep); line-height: 1; margin-bottom: 0.35rem; }
+    .card-value.accent { color: var(--accent); }
+    .card-desc { font-size: 0.72rem; font-weight: 300; color: var(--bark); line-height: 1.6; }
+    .table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.78rem; }
+    .table th { font-size: 0.58rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--bark); padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--light-line); text-align: left; }
+    .table td { padding: 0.75rem; border-bottom: 1px solid var(--light-line); color: var(--earth); font-weight: 300; vertical-align: top; }
+    .table tr:last-child td { border-bottom: none; }
+    .table td.highlight { color: var(--accent); font-weight: 500; }
+    .pill { display: inline-block; font-size: 0.58rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25rem 0.65rem; background: var(--accent-pale); color: var(--accent); }
+    .pill.warm { background: #FDF3E4; color: #B8873A; }
+    .pill.alert { background: #FDEAEA; color: #B83A3A; }
+    .doc-footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--light-line); display: flex; justify-content: space-between; align-items: center; }
+    .doc-footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; letter-spacing: 0.1em; color: var(--bark); }
+    .doc-footer-note { font-size: 0.62rem; font-weight: 300; color: var(--bark); opacity: 0.7; letter-spacing: 0.06em; }
+    .action-list { list-style: none; margin: 1rem 0; }
+    .action-list li { display: flex; gap: 1rem; align-items: flex-start; padding: 0.85rem 0; border-bottom: 1px solid var(--light-line); font-size: 0.8rem; font-weight: 300; color: var(--earth); line-height: 1.6; }
+    .action-list li:last-child { border-bottom: none; }
+    .action-num { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; color: var(--accent); line-height: 1; min-width: 1.8rem; }
+    .divider { height: 1px; background: var(--light-line); margin: 2rem 0; }
+    @media print { body { padding: 2rem; } }
+  </style>
+</head>
+<body>
+
+  <div class="doc-header">
+    <div class="doc-brand">Twist &amp; Thrive Consulting
+      <span>Sample Deliverable</span>
+    </div>
+    <div class="doc-meta">
+      Business Clarity Audit<br>
+      Evergreen Wellness Studio<br>
+      Boulder, CO · June 2025
+    </div>
+  </div>
+
+  <p class="eyebrow">Clarity Audit Report</p>
+  <h1 class="doc-title">Where the money is<br><em>leaking.</em></h1>
+  <p class="doc-subtitle">One-hour deep-dive into operations, follow-up gaps, and workflow friction. Three specific findings — each with a written fix. This is your starting point.</p>
+
+  <div class="callout">
+    <p><strong>Estimated annual revenue gap: $28,400–$41,200</strong> — recoverable with targeted fixes across the three areas identified below.</p>
+  </div>
+
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-label">Finding 01</div>
+      <div class="card-value accent">62%</div>
+      <div class="card-desc">of new inquiry emails go unanswered past 48 hours — your busiest period for drop-off</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Finding 02</div>
+      <div class="card-value accent">3.1×</div>
+      <div class="card-desc">average sessions booked by clients who received a structured onboarding sequence vs. those who didn't</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Finding 03</div>
+      <div class="card-value accent">$0</div>
+      <div class="card-desc">collected from lapsed clients in the past 12 months — no re-engagement system exists</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="eyebrow">Finding 01 — Follow-Up Gap</p>
+    <h2 class="section-heading">Inquiry emails are dying in your inbox</h2>
+    <p>An audit of your intake flow shows that new inquiries submitted via your website form are landing in a shared Gmail inbox with no automation, no auto-reply, and no SLA. During your two busiest months (January and September), average response time exceeded 72 hours. Industry data for wellness studios shows conversion drops by 40% after 24 hours of silence.</p>
+    <p>You're not losing these leads because your pricing is wrong or your services aren't compelling. You're losing them to a faster competitor who responded first.</p>
+    <div class="callout">
+      <p><strong>The fix:</strong> A 3-step automated intake sequence — immediate acknowledgment, qualification question at hour 4, and a calendar link at hour 24 if no reply. Estimated setup time: 2 hours. Estimated annual recovery: $9,600–$14,400.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="eyebrow">Finding 02 — Onboarding Gap</p>
+    <h2 class="section-heading">New clients are leaving before they understand your value</h2>
+    <p>Clients who book a first session and receive no structured follow-up average 1.4 return visits. Clients who received even an informal "here's what to expect" email averaged 4.3 return visits. The difference isn't your service quality — it's that clients who feel oriented invest more.</p>
+    <p>Currently there is no onboarding sequence in place. New clients receive a booking confirmation and nothing else until the day before their appointment.</p>
+    <div class="callout">
+      <p><strong>The fix:</strong> A 3-email onboarding flow (pre-visit prep, post-visit check-in, 30-day milestone). Reactivates the relationship at each touchpoint. Estimated annual recovery: $11,200–$16,800 from improved retention alone.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="eyebrow">Finding 03 — Lapsed Client Re-Engagement</p>
+    <h2 class="section-heading">Your warmest leads have gone completely cold</h2>
+    <p>You have 214 clients in your booking system who haven't made an appointment in over 90 days. These clients have already trusted you with their money and time — they're your easiest re-conversion. There is no system to reach them, no trigger that flags inactivity, and no offer designed to win them back.</p>
+    <p>A conservative 12% re-engagement rate on dormant clients at your average session price ($95) represents immediate recoverable revenue with a single campaign.</p>
+    <div class="callout">
+      <p><strong>The fix:</strong> A 2-touch re-engagement sequence triggered at 90 days of inactivity, paired with a "we miss you" offer (complimentary add-on, not a discount). Estimated one-time recovery: $7,600+. Estimated recurring annual value: $18,000+ if systematized.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="eyebrow">Next Steps</p>
+    <h2 class="section-heading">What happens after this report</h2>
+    <ul class="action-list">
+      <li><span class="action-num">1</span><div>Prioritize findings by implementation effort vs. revenue impact — Finding 01 is highest ROI, lowest lift</div></li>
+      <li><span class="action-num">2</span><div>Select implementation path: DIY with provided templates, or engage Twist &amp; Thrive for hands-on buildout</div></li>
+      <li><span class="action-num">3</span><div>Book a 30-minute debrief call to walk through this report together and answer your questions</div></li>
+    </ul>
+  </div>
+
+  <div class="doc-footer">
+    <div class="doc-footer-brand">Twist &amp; Thrive Consulting</div>
+    <div class="doc-footer-note">Confidential · Sample deliverable for illustration purposes · consultwithatwist@gmail.com</div>
+  </div>
+
+</body>
+</html>
