@@ -1,214 +1,578 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pricing Optimization — Centered Space Pilates</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing & Offer Design — Bloom Postpartum Collective</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --sand: #F5F0E8; --sand-mid: #EDE6D6; --bark: #6B5C4E; --earth: #5C4A3A;
-      --deep: #2E2318; --cream: #FAF7F2; --accent: #4A9B8A; --accent-light: #6ABCB0;
-      --accent-pale: #E2F3F1; --gold: #C4A882; --light-line: rgba(92,74,58,0.12);
+      --sand: #F5F0E8;
+      --cream: #FAF7F2;
+      --bark: #6B5C4E;
+      --earth: #5C4A3A;
+      --deep: #2E2318;
+      --teal: #4A9B8A;
+      --teal-light: #6ABCB0;
+      --gold: #C4A882;
     }
-    body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--deep); max-width: 900px; margin: 0 auto; padding: 4rem 3rem; }
-    .doc-header { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 2rem; border-bottom: 1px solid var(--light-line); margin-bottom: 3rem; }
-    .doc-brand { font-family: 'Cormorant Garamond', serif; font-size: 1rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--earth); }
-    .doc-brand span { display: block; font-family: 'Jost', sans-serif; font-size: 0.6rem; font-weight: 500; letter-spacing: 0.2em; color: var(--accent); margin-top: 0.25rem; text-transform: uppercase; }
-    .doc-meta { text-align: right; font-size: 0.7rem; font-weight: 300; color: var(--bark); line-height: 1.9; letter-spacing: 0.06em; }
-    .doc-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; line-height: 1.1; color: var(--deep); margin-bottom: 0.6rem; }
-    .doc-title em { font-style: italic; color: var(--accent); }
-    .doc-subtitle { font-size: 0.82rem; font-weight: 300; color: var(--bark); line-height: 1.7; max-width: 560px; margin-bottom: 3rem; }
-    .eyebrow { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
-    .section { margin-bottom: 3rem; }
-    .section-heading { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--earth); margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--light-line); }
-    p { font-size: 0.82rem; font-weight: 300; line-height: 1.8; color: var(--earth); margin-bottom: 0.75rem; }
-    .callout { background: var(--accent-pale); border-left: 3px solid var(--accent); padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
-    .callout p { color: var(--deep); font-weight: 400; margin: 0; }
-    .callout strong { color: var(--accent); }
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0; }
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin: 1.5rem 0; }
-    .card { background: var(--sand); padding: 1.5rem; }
-    .card-label { font-size: 0.58rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bark); margin-bottom: 0.5rem; }
-    .card-value { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--deep); line-height: 1; margin-bottom: 0.35rem; }
-    .card-value.accent { color: var(--accent); }
-    .card-desc { font-size: 0.72rem; font-weight: 300; color: var(--bark); line-height: 1.6; }
-    .table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.78rem; }
-    .table th { font-size: 0.58rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--bark); padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--light-line); text-align: left; }
-    .table td { padding: 0.75rem; border-bottom: 1px solid var(--light-line); color: var(--earth); font-weight: 300; vertical-align: top; }
-    .table tr:last-child td { border-bottom: none; }
-    .table td.highlight { color: var(--accent); font-weight: 500; }
-    .pill { display: inline-block; font-size: 0.58rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25rem 0.65rem; background: var(--accent-pale); color: var(--accent); }
-    .pill.warm { background: #FDF3E4; color: #B8873A; }
-    .pill.alert { background: #FDEAEA; color: #B83A3A; }
-    .doc-footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--light-line); display: flex; justify-content: space-between; align-items: center; }
-    .doc-footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; letter-spacing: 0.1em; color: var(--bark); }
-    .doc-footer-note { font-size: 0.62rem; font-weight: 300; color: var(--bark); opacity: 0.7; letter-spacing: 0.06em; }
-    .action-list { list-style: none; margin: 1rem 0; }
-    .action-list li { display: flex; gap: 1rem; align-items: flex-start; padding: 0.85rem 0; border-bottom: 1px solid var(--light-line); font-size: 0.8rem; font-weight: 300; color: var(--earth); line-height: 1.6; }
-    .action-list li:last-child { border-bottom: none; }
-    .action-num { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; color: var(--accent); line-height: 1; min-width: 1.8rem; }
-    .divider { height: 1px; background: var(--light-line); margin: 2rem 0; }
-    @media print { body { padding: 2rem; } }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--deep);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .header {
+      background: var(--deep);
+      padding: 1.25rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--sand);
+      letter-spacing: 0.03em;
+    }
+    .header-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+    }
+
+    .hero {
+      background: var(--deep);
+      padding: 4rem 2.5rem 3.5rem;
+      border-bottom: 1px solid rgba(196,168,130,0.2);
+    }
+    .meta-row {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .meta-item {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .meta-item span {
+      color: var(--teal-light);
+      margin-right: 0.4rem;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 400;
+      color: var(--sand);
+      line-height: 1.15;
+      max-width: 700px;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--teal-light);
+    }
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--gold);
+      max-width: 580px;
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    .content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 2.5rem 5rem;
+    }
+
+    .section { margin-bottom: 3.5rem; }
+
+    .section-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.6rem;
+    }
+
+    .section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 400;
+      color: var(--earth);
+      margin-bottom: 1.25rem;
+      line-height: 1.2;
+    }
+    .section h2 em { font-style: italic; color: var(--teal); }
+
+    .body-text {
+      font-size: 0.97rem;
+      color: var(--bark);
+      line-height: 1.75;
+      max-width: 680px;
+    }
+    .body-text + .body-text { margin-top: 1rem; }
+
+    .callout {
+      background: var(--sand);
+      border-left: 3px solid var(--teal);
+      padding: 1.5rem 1.75rem;
+      margin: 1.75rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .callout-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+    }
+    .callout p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: var(--earth);
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    /* PROBLEM GRID */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 600px) { .problem-grid { grid-template-columns: 1fr; } }
+    .problem-card {
+      background: var(--sand);
+      padding: 1.25rem 1.5rem;
+      border-radius: 4px;
+    }
+    .problem-card-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--bark);
+      opacity: 0.7;
+      margin-bottom: 0.5rem;
+    }
+    .problem-card p {
+      font-size: 0.9rem;
+      color: var(--earth);
+      line-height: 1.55;
+    }
+
+    /* OFFER TIERS */
+    .tiers {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin: 1.75rem 0;
+    }
+    @media (max-width: 700px) { .tiers { grid-template-columns: 1fr; } }
+    .tier-card {
+      background: var(--sand);
+      border-radius: 6px;
+      padding: 1.75rem 1.5rem;
+      position: relative;
+    }
+    .tier-card.featured {
+      background: var(--deep);
+    }
+    .tier-badge {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+      margin-bottom: 0.5rem;
+    }
+    .tier-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--earth);
+      margin-bottom: 1rem;
+    }
+    .tier-card.featured .tier-name { color: var(--sand); }
+    .tier-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .tier-card.featured .tier-price { color: var(--teal-light); }
+    .tier-period {
+      font-size: 0.75rem;
+      color: var(--bark);
+      margin-bottom: 1.25rem;
+    }
+    .tier-card.featured .tier-period { color: var(--gold); }
+    .tier-items {
+      list-style: none;
+      padding: 0;
+      border-top: 1px solid rgba(107,92,78,0.15);
+      padding-top: 1rem;
+    }
+    .tier-card.featured .tier-items { border-color: rgba(255,255,255,0.1); }
+    .tier-items li {
+      font-size: 0.82rem;
+      color: var(--bark);
+      padding: 0.35rem 0;
+      display: flex;
+      gap: 0.6rem;
+      line-height: 1.4;
+    }
+    .tier-card.featured .tier-items li { color: var(--gold); }
+    .tier-items li::before {
+      content: '✓';
+      color: var(--teal);
+      font-size: 0.75rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+    .tier-card.featured .tier-items li::before { color: var(--teal-light); }
+    .tier-purpose {
+      font-size: 0.75rem;
+      color: var(--bark);
+      opacity: 0.7;
+      margin-top: 1rem;
+      font-style: italic;
+      line-height: 1.5;
+    }
+    .tier-card.featured .tier-purpose { color: var(--gold); opacity: 0.8; }
+
+    /* NEW STREAMS */
+    .streams {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 600px) { .streams { grid-template-columns: 1fr; } }
+    .stream-card {
+      background: var(--sand);
+      padding: 1.5rem;
+      border-radius: 4px;
+      border-top: 3px solid var(--gold);
+    }
+    .stream-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .stream-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--earth);
+      margin-bottom: 0.6rem;
+    }
+    .stream-desc {
+      font-size: 0.85rem;
+      color: var(--bark);
+      line-height: 1.6;
+    }
+
+    /* ROADMAP */
+    .roadmap {
+      margin: 1.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .roadmap-item {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+    .roadmap-num {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--teal);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+    .roadmap-content strong {
+      display: block;
+      font-weight: 600;
+      color: var(--earth);
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+    .roadmap-content p {
+      font-size: 0.875rem;
+      color: var(--bark);
+      line-height: 1.6;
+    }
+
+    /* OUTCOME BAR */
+    .outcome-bar {
+      background: var(--deep);
+      border-radius: 6px;
+      padding: 2rem 2.25rem;
+      margin: 2rem 0 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 600px) { .outcome-bar { grid-template-columns: 1fr; } }
+    .outcome-stat { text-align: center; }
+    .outcome-stat .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 400;
+      color: var(--teal-light);
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .outcome-stat .label {
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      line-height: 1.4;
+    }
+
+    hr.section-rule {
+      border: none;
+      border-top: 1px solid rgba(107,92,78,0.15);
+      margin: 3rem 0;
+    }
+
+    .footer {
+      background: var(--sand);
+      border-top: 1px solid rgba(107,92,78,0.15);
+      padding: 1.5rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem;
+      color: var(--bark);
+    }
+    .footer-note {
+      font-size: 0.72rem;
+      color: var(--bark);
+      opacity: 0.65;
+    }
   </style>
 </head>
 <body>
 
-  <div class="doc-header">
-    <div class="doc-brand">Twist &amp; Thrive Consulting
-      <span>Sample Deliverable</span>
+  <header class="header">
+    <div class="header-brand">Twist &amp; Thrive Consulting</div>
+    <div class="header-label">Sample Deliverable</div>
+  </header>
+
+  <div class="hero">
+    <div class="meta-row">
+      <div class="meta-item"><span>Client</span>Bloom Postpartum Collective</div>
+      <div class="meta-item"><span>Service</span>Pricing &amp; Offer Design</div>
+      <div class="meta-item"><span>Location</span>Boulder, CO</div>
     </div>
-    <div class="doc-meta">
-      Pricing Optimization Report<br>
-      Centered Space Pilates<br>
-      Boulder, CO · June 2025
-    </div>
+    <h1>The work was there.<br>The model<br><em>wasn't built for it.</em></h1>
+    <p class="hero-sub">Subscription model redesign, workload audit, and new revenue stream identification for a postpartum support practice. The founder was working nights. The pricing wasn't protecting her time or capturing her value.</p>
   </div>
 
-  <p class="eyebrow">Pricing Strategy Report</p>
-  <h1 class="doc-title">You're charging 2021 prices<br><em>for 2025 value.</em></h1>
-  <p class="doc-subtitle">A competitive gap analysis and offer restructure for a boutique Pilates studio. Includes market benchmarking, new tier architecture, and projected revenue impact of each change.</p>
+  <div class="content">
 
-  <div class="section">
-    <p class="eyebrow">Competitive Landscape</p>
-    <h2 class="section-heading">What the market is actually charging</h2>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Studio</th>
-          <th>Single Session</th>
-          <th>10-Pack</th>
-          <th>Monthly Unlimited</th>
-          <th>Positioning</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Centered Space (current)</strong></td>
-          <td>$38</td>
-          <td>$330</td>
-          <td>$189</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <td>Boulder Body Works</td>
-          <td>$45</td>
-          <td>$390</td>
-          <td>$220</td>
-          <td>Premium boutique</td>
-        </tr>
-        <tr>
-          <td>Core Collective</td>
-          <td>$42</td>
-          <td>$370</td>
-          <td>$210</td>
-          <td>Community-first</td>
-        </tr>
-        <tr>
-          <td>Align Studio</td>
-          <td>$52</td>
-          <td>$440</td>
-          <td>$265</td>
-          <td>Rehab-adjacent</td>
-        </tr>
-        <tr>
-          <td>Market median</td>
-          <td>$45</td>
-          <td>$385</td>
-          <td>$225</td>
-          <td>—</td>
-        </tr>
-        <tr style="background: var(--accent-pale);">
-          <td class="highlight"><strong>Your gap vs. median</strong></td>
-          <td class="highlight">–$7/class</td>
-          <td class="highlight">–$55/pack</td>
-          <td class="highlight">–$36/mo</td>
-          <td>—</td>
-        </tr>
-      </tbody>
-    </table>
-    <p>At current volume (420 sessions/month), the per-session gap alone represents <strong>$2,940/month in uncaptured revenue</strong> — not from selling more, just from pricing to market.</p>
-  </div>
+    <div class="section">
+      <p class="section-label">What We Found</p>
+      <h2>Four problems <em>hiding in plain sight.</em></h2>
+      <p class="body-text">The Clarity Audit surfaced the same pattern we see often in service businesses built by caregivers: the work is excellent, the clients are loyal, and the founder is exhausted. The business model was built to serve — not to sustain. Four things were working against her:</p>
 
-  <div class="section">
-    <p class="eyebrow">New Offer Architecture</p>
-    <h2 class="section-heading">Three tiers that do more work for you</h2>
-    <div class="grid-3">
-      <div class="card">
-        <div class="card-label">Tier 1 — Intro</div>
-        <div class="card-value" style="font-size:1.5rem; margin-bottom:0.5rem;">$99</div>
-        <div class="card-desc">
-          First Month Special<br><br>
-          Unlimited classes · 30 days<br>
-          Email onboarding sequence<br>
-          1 complimentary form check<br><br>
-          <em>Purpose: reduce first-purchase friction, maximize trial-to-member conversion</em>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <p class="problem-card-label">Problem 01</p>
+          <p>Subscription pricing was flat and undifferentiated — clients with very different needs and usage levels were paying the same rate.</p>
+        </div>
+        <div class="problem-card">
+          <p class="problem-card-label">Problem 02</p>
+          <p>No cap on scope. Subscriptions included unlimited touchpoints, which meant high-need clients consumed disproportionate time with no additional revenue.</p>
+        </div>
+        <div class="problem-card">
+          <p class="problem-card-label">Problem 03</p>
+          <p>Two high-value capabilities — lactation support and home organization for new families — were being offered informally and not priced or packaged at all.</p>
+        </div>
+        <div class="problem-card">
+          <p class="problem-card-label">Problem 04</p>
+          <p>No clear off-ramp from core support. Clients had no natural next step, which created dependency rather than progression and made churn feel like abandonment.</p>
         </div>
       </div>
-      <div class="card" style="border: 1px solid var(--accent);">
-        <div class="card-label">Tier 2 — Core <span class="pill" style="margin-left:0.5rem; font-size:0.52rem;">Most Popular</span></div>
-        <div class="card-value accent" style="font-size:1.5rem; margin-bottom:0.5rem;">$229/mo</div>
-        <div class="card-desc">
-          Monthly Membership<br><br>
-          Unlimited group classes<br>
-          Priority booking window<br>
-          10% off privates &amp; workshops<br>
-          Member-only events (quarterly)<br><br>
-          <em>Purpose: predictable MRR, retention anchor</em>
-        </div>
+
+      <div class="callout">
+        <p class="callout-label">Root cause</p>
+        <p>"She was running a relationship-based practice on a transactional pricing model. The two were in constant conflict."</p>
       </div>
-      <div class="card">
-        <div class="card-label">Tier 3 — Committed</div>
-        <div class="card-value" style="font-size:1.5rem; margin-bottom:0.5rem;">$189/mo</div>
-        <div class="card-desc">
-          Annual Prepay (billed yearly)<br><br>
-          All Core tier benefits<br>
-          2 complimentary privates/year<br>
-          Name on studio wall<br><br>
-          <em>Purpose: cash flow stability, churn reduction — annual members cancel at 6% vs. 22% monthly</em>
+    </div>
+
+    <hr class="section-rule">
+
+    <div class="section">
+      <p class="section-label">New Offer Architecture</p>
+      <h2>Three tiers that <em>protect her time</em> and price her value.</h2>
+      <p class="body-text">The restructure created clear differentiation by need level, built scope protection into each tier, and gave clients a natural progression path. Every tier has a defined purpose.</p>
+
+      <div class="tiers">
+        <div class="tier-card">
+          <p class="tier-badge">Foundation</p>
+          <p class="tier-name">Core Support</p>
+          <p class="tier-price">$297</p>
+          <p class="tier-period">per month</p>
+          <ul class="tier-items">
+            <li>2 check-in calls per month</li>
+            <li>Async messaging (48hr response)</li>
+            <li>Resource library access</li>
+            <li>Monthly wellness check-in form</li>
+          </ul>
+          <p class="tier-purpose">For clients in a stable rhythm who need light-touch continuity.</p>
+        </div>
+        <div class="tier-card featured">
+          <p class="tier-badge">Most Popular</p>
+          <p class="tier-name">Active Support</p>
+          <p class="tier-price">$497</p>
+          <p class="tier-period">per month</p>
+          <ul class="tier-items">
+            <li>4 check-in calls per month</li>
+            <li>Priority async messaging (24hr)</li>
+            <li>One home visit per month</li>
+            <li>Lactation support included</li>
+            <li>Resource library access</li>
+          </ul>
+          <p class="tier-purpose">For clients in the active postpartum window needing consistent presence.</p>
+        </div>
+        <div class="tier-card">
+          <p class="tier-badge">Intensive</p>
+          <p class="tier-name">Full Circle</p>
+          <p class="tier-price">$797</p>
+          <p class="tier-period">per month</p>
+          <ul class="tier-items">
+            <li>Unlimited calls (scheduled)</li>
+            <li>Same-day async response</li>
+            <li>Two home visits per month</li>
+            <li>Lactation + home prep support</li>
+            <li>Partner &amp; family sessions</li>
+          </ul>
+          <p class="tier-purpose">For clients who want full-spectrum support in the first 90 days.</p>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="section">
-    <p class="eyebrow">Revenue Impact Model</p>
-    <h2 class="section-heading">What this restructure does to your numbers</h2>
-    <div class="grid-2">
-      <div class="card">
-        <div class="card-label">Current Monthly Revenue</div>
-        <div class="card-value">$18,420</div>
-        <div class="card-desc">Based on reported session volume and current pricing mix</div>
-      </div>
-      <div class="card">
-        <div class="card-label">Projected Monthly Revenue</div>
-        <div class="card-value accent">$24,800</div>
-        <div class="card-desc">Same volume, new pricing + 15% improvement in membership conversion</div>
+    <hr class="section-rule">
+
+    <div class="section">
+      <p class="section-label">New Revenue Streams</p>
+      <h2>Two capabilities she already had. <em>Not yet earning.</em></h2>
+      <p class="body-text">The audit identified two services the founder was already providing informally — folded into subscriptions without separate pricing. Packaging them as standalone or add-on offerings created two new revenue streams without adding new expertise or client load.</p>
+
+      <div class="streams">
+        <div class="stream-card">
+          <p class="stream-label">New Stream 01</p>
+          <p class="stream-title">Lactation Support</p>
+          <p class="stream-desc">Packaged as a standalone add-on ($125/session) and bundled into Active and Full Circle tiers. Positions the practice as a one-stop postpartum resource and reduces the need for clients to source a separate provider.</p>
+        </div>
+        <div class="stream-card">
+          <p class="stream-label">New Stream 02</p>
+          <p class="stream-title">Newborn Home Prep</p>
+          <p class="stream-desc">A pre-birth or early postpartum service ($185/session) focused on home organization, nursery setup, and environment readiness. Addressable before a client is even enrolled in a support tier — creates an earlier entry point into the relationship.</p>
+        </div>
       </div>
     </div>
-    <div class="callout">
-      <p><strong>Annual revenue lift: $76,600</strong> — from pricing changes and offer restructure alone, with no increase in sessions taught or clients served. The Tier 1 intro offer is projected to improve trial-to-member conversion from 31% to 48% based on comparable studio data.</p>
+
+    <hr class="section-rule">
+
+    <div class="section">
+      <p class="section-label">Workload &amp; Rollout</p>
+      <h2>How to transition without <em>losing the clients you have.</em></h2>
+
+      <div class="roadmap">
+        <div class="roadmap-item">
+          <div class="roadmap-num">1</div>
+          <div class="roadmap-content">
+            <strong>Audit current client time spend</strong>
+            <p>Before repricing, map actual hours per client over the past 60 days. This determines which tier each existing client naturally fits — and who is most over-served under the current model.</p>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-num">2</div>
+          <div class="roadmap-content">
+            <strong>Grandfather existing clients for 90 days</strong>
+            <p>All current clients stay at their existing rate with advance notice of the change. Framed as gratitude, not obligation. Give them the first option to move to the new tier that fits them best.</p>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-num">3</div>
+          <div class="roadmap-content">
+            <strong>Launch new pricing for all new clients immediately</strong>
+            <p>No need to wait for the full rollout. New clients enter the new model from day one. This also creates a natural comparison point for the conversation with existing clients.</p>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-num">4</div>
+          <div class="roadmap-content">
+            <strong>Soft-launch the add-on services</strong>
+            <p>Offer Lactation Support and Home Prep to existing clients first — with a brief explanation of what's now available. Let demand validate pricing before broader promotion.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="outcome-bar">
+        <div class="outcome-stat">
+          <span class="num">3</span>
+          <span class="label">Subscription tiers with clear scope and value differentiation</span>
+        </div>
+        <div class="outcome-stat">
+          <span class="num">2</span>
+          <span class="label">New revenue streams identified from existing capabilities</span>
+        </div>
+        <div class="outcome-stat">
+          <span class="num">0</span>
+          <span class="label">Nights worked after workload restructure was implemented</span>
+        </div>
+      </div>
     </div>
+
   </div>
 
-  <div class="section">
-    <p class="eyebrow">Implementation</p>
-    <h2 class="section-heading">How to roll this out without losing existing members</h2>
-    <ul class="action-list">
-      <li><span class="action-num">1</span><div>Grandfather all existing monthly members at their current rate for 90 days with advance notice — this prevents churn and builds goodwill</div></li>
-      <li><span class="action-num">2</span><div>Launch new pricing to all new clients immediately — no need to wait</div></li>
-      <li><span class="action-num">3</span><div>Introduce annual tier with a "founding member" window: first 20 sign-ups at $169/mo locked for life — creates urgency and cash flow in month one</div></li>
-      <li><span class="action-num">4</span><div>Send a transparent email to your community explaining the change — studios that communicate the "why" see 80% lower churn on price increases</div></li>
-    </ul>
-  </div>
-
-  <div class="doc-footer">
-    <div class="doc-footer-brand">Twist &amp; Thrive Consulting</div>
-    <div class="doc-footer-note">Confidential · Sample deliverable for illustration purposes · consultwithatwist@gmail.com</div>
-  </div>
+  <footer class="footer">
+    <div class="footer-brand">Twist &amp; Thrive Consulting</div>
+    <div class="footer-note">Confidential · Sample deliverable for illustration purposes · consultwithatwist@gmail.com</div>
+  </footer>
 
 </body>
 </html>
