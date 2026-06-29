@@ -1,181 +1,538 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Go-To-Market Strategy — Roots & Rise Nutrition</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Go-To-Market Strategy — Youth Advocacy Alliance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --sand: #F5F0E8; --sand-mid: #EDE6D6; --bark: #6B5C4E; --earth: #5C4A3A;
-      --deep: #2E2318; --cream: #FAF7F2; --accent: #4A9B8A; --accent-light: #6ABCB0;
-      --accent-pale: #E2F3F1; --gold: #C4A882; --light-line: rgba(92,74,58,0.12);
+      --sand: #F5F0E8;
+      --cream: #FAF7F2;
+      --bark: #6B5C4E;
+      --earth: #5C4A3A;
+      --deep: #2E2318;
+      --teal: #4A9B8A;
+      --teal-light: #6ABCB0;
+      --gold: #C4A882;
     }
-    body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--deep); max-width: 900px; margin: 0 auto; padding: 4rem 3rem; }
-    .doc-header { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 2rem; border-bottom: 1px solid var(--light-line); margin-bottom: 3rem; }
-    .doc-brand { font-family: 'Cormorant Garamond', serif; font-size: 1rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--earth); }
-    .doc-brand span { display: block; font-family: 'Jost', sans-serif; font-size: 0.6rem; font-weight: 500; letter-spacing: 0.2em; color: var(--accent); margin-top: 0.25rem; text-transform: uppercase; }
-    .doc-meta { text-align: right; font-size: 0.7rem; font-weight: 300; color: var(--bark); line-height: 1.9; letter-spacing: 0.06em; }
-    .doc-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; line-height: 1.1; color: var(--deep); margin-bottom: 0.6rem; }
-    .doc-title em { font-style: italic; color: var(--accent); }
-    .doc-subtitle { font-size: 0.82rem; font-weight: 300; color: var(--bark); line-height: 1.7; max-width: 560px; margin-bottom: 3rem; }
-    .eyebrow { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
-    .section { margin-bottom: 3rem; }
-    .section-heading { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--earth); margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--light-line); }
-    p { font-size: 0.82rem; font-weight: 300; line-height: 1.8; color: var(--earth); margin-bottom: 0.75rem; }
-    .callout { background: var(--accent-pale); border-left: 3px solid var(--accent); padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
-    .callout p { color: var(--deep); font-weight: 400; margin: 0; }
-    .callout strong { color: var(--accent); }
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0; }
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin: 1.5rem 0; }
-    .card { background: var(--sand); padding: 1.5rem; }
-    .card-label { font-size: 0.58rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bark); margin-bottom: 0.5rem; }
-    .card-value { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--deep); line-height: 1; margin-bottom: 0.35rem; }
-    .card-value.accent { color: var(--accent); }
-    .card-desc { font-size: 0.72rem; font-weight: 300; color: var(--bark); line-height: 1.6; }
-    .table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.78rem; }
-    .table th { font-size: 0.58rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--bark); padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--light-line); text-align: left; }
-    .table td { padding: 0.75rem; border-bottom: 1px solid var(--light-line); color: var(--earth); font-weight: 300; vertical-align: top; }
-    .table tr:last-child td { border-bottom: none; }
-    .table td.highlight { color: var(--accent); font-weight: 500; }
-    .pill { display: inline-block; font-size: 0.58rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25rem 0.65rem; background: var(--accent-pale); color: var(--accent); }
-    .pill.warm { background: #FDF3E4; color: #B8873A; }
-    .pill.alert { background: #FDEAEA; color: #B83A3A; }
-    .doc-footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--light-line); display: flex; justify-content: space-between; align-items: center; }
-    .doc-footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; letter-spacing: 0.1em; color: var(--bark); }
-    .doc-footer-note { font-size: 0.62rem; font-weight: 300; color: var(--bark); opacity: 0.7; letter-spacing: 0.06em; }
-    .action-list { list-style: none; margin: 1rem 0; }
-    .action-list li { display: flex; gap: 1rem; align-items: flex-start; padding: 0.85rem 0; border-bottom: 1px solid var(--light-line); font-size: 0.8rem; font-weight: 300; color: var(--earth); line-height: 1.6; }
-    .action-list li:last-child { border-bottom: none; }
-    .action-num { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; color: var(--accent); line-height: 1; min-width: 1.8rem; }
-    .divider { height: 1px; background: var(--light-line); margin: 2rem 0; }
-    @media print { body { padding: 2rem; } }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--deep);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    .header {
+      background: var(--deep);
+      padding: 1.25rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--sand);
+      letter-spacing: 0.03em;
+    }
+    .header-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+    }
+
+    /* HERO */
+    .hero {
+      background: var(--deep);
+      padding: 4rem 2.5rem 3.5rem;
+      border-bottom: 1px solid rgba(196,168,130,0.2);
+    }
+    .meta-row {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .meta-item {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .meta-item span {
+      color: var(--teal-light);
+      margin-right: 0.4rem;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 400;
+      color: var(--sand);
+      line-height: 1.15;
+      max-width: 700px;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--teal-light);
+    }
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--gold);
+      max-width: 580px;
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    /* MAIN CONTENT */
+    .content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 2.5rem 5rem;
+    }
+
+    .section {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.6rem;
+    }
+
+    .section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 400;
+      color: var(--earth);
+      margin-bottom: 1.25rem;
+      line-height: 1.2;
+    }
+
+    .section h2 em {
+      font-style: italic;
+      color: var(--teal);
+    }
+
+    .body-text {
+      font-size: 0.97rem;
+      color: var(--bark);
+      line-height: 1.75;
+      max-width: 680px;
+    }
+
+    .body-text + .body-text {
+      margin-top: 1rem;
+    }
+
+    /* CALLOUT BOX */
+    .callout {
+      background: var(--sand);
+      border-left: 3px solid var(--teal);
+      padding: 1.5rem 1.75rem;
+      margin: 1.75rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .callout-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+    }
+    .callout p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: var(--earth);
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    /* AUDIENCE CARDS */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 600px) {
+      .audience-grid { grid-template-columns: 1fr; }
+    }
+    .audience-card {
+      background: var(--sand);
+      padding: 1.5rem;
+      border-radius: 4px;
+    }
+    .audience-card-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.75rem;
+    }
+    .audience-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--earth);
+      margin-bottom: 0.75rem;
+    }
+    .audience-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    .audience-card ul li {
+      font-size: 0.85rem;
+      color: var(--bark);
+      padding: 0.3rem 0;
+      border-bottom: 1px solid rgba(107,92,78,0.12);
+      display: flex;
+      gap: 0.6rem;
+    }
+    .audience-card ul li:last-child { border-bottom: none; }
+    .audience-card ul li::before {
+      content: '·';
+      color: var(--teal);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* TABLE */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+    th {
+      background: var(--deep);
+      color: var(--sand);
+      font-family: 'Jost', sans-serif;
+      font-weight: 500;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+    td {
+      padding: 0.85rem 1rem;
+      color: var(--bark);
+      border-bottom: 1px solid rgba(107,92,78,0.15);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+    tr:nth-child(even) td { background: var(--sand); }
+    td:first-child { font-weight: 500; color: var(--earth); }
+
+    /* ROADMAP */
+    .roadmap {
+      margin: 1.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .roadmap-item {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+    .roadmap-num {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--teal);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+    .roadmap-content strong {
+      display: block;
+      font-weight: 600;
+      color: var(--earth);
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+    .roadmap-content p {
+      font-size: 0.875rem;
+      color: var(--bark);
+      line-height: 1.6;
+    }
+
+    /* OUTCOME BAR */
+    .outcome-bar {
+      background: var(--deep);
+      border-radius: 6px;
+      padding: 2rem 2.25rem;
+      margin: 2rem 0 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 600px) {
+      .outcome-bar { grid-template-columns: 1fr; }
+    }
+    .outcome-stat {
+      text-align: center;
+    }
+    .outcome-stat .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 400;
+      color: var(--teal-light);
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .outcome-stat .label {
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      line-height: 1.4;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: var(--sand);
+      border-top: 1px solid rgba(107,92,78,0.15);
+      padding: 1.5rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem;
+      color: var(--bark);
+    }
+    .footer-note {
+      font-size: 0.72rem;
+      color: var(--bark);
+      opacity: 0.65;
+    }
+
+    hr.section-rule {
+      border: none;
+      border-top: 1px solid rgba(107,92,78,0.15);
+      margin: 3rem 0;
+    }
   </style>
 </head>
 <body>
 
-  <div class="doc-header">
-    <div class="doc-brand">Twist &amp; Thrive Consulting
-      <span>Sample Deliverable</span>
+  <header class="header">
+    <div class="header-brand">Twist &amp; Thrive Consulting</div>
+    <div class="header-label">Sample Deliverable</div>
+  </header>
+
+  <div class="hero">
+    <div class="meta-row">
+      <div class="meta-item"><span>Client</span>Youth Advocacy Alliance</div>
+      <div class="meta-item"><span>Service</span>Go-To-Market Strategy</div>
+      <div class="meta-item"><span>Location</span>Colorado Front Range</div>
     </div>
-    <div class="doc-meta">
-      Go-To-Market Strategy<br>
-      Roots &amp; Rise Nutrition<br>
-      Lafayette, CO · June 2025
-    </div>
+    <h1>A mission this important<br>deserves an audience<br><em>that knows it exists.</em></h1>
+    <p class="hero-sub">Go-to-market strategy and digital presence build for a nonprofit launching a children's mental health literacy program. Includes positioning, audience mapping, channel strategy, and a phased activation roadmap.</p>
   </div>
 
-  <p class="eyebrow">GTM Strategy Brief</p>
-  <h1 class="doc-title">Stop being the best-kept<br><em>secret in town.</em></h1>
-  <p class="doc-subtitle">A focused market entry and growth plan for a functional nutrition practice expanding into corporate wellness. Includes positioning, channel strategy, and a 90-day activation roadmap.</p>
+  <div class="content">
 
-  <div class="section">
-    <p class="eyebrow">The Problem We're Solving</p>
-    <h2 class="section-heading">Great service, wrong audience, unclear message</h2>
-    <p>Roots &amp; Rise has strong retention among existing clients and excellent outcomes data. The gap is upstream: the current website speaks to "anyone interested in wellness" and the referral pipeline is entirely word-of-mouth from a small network. New revenue will require reaching a defined segment with a specific message — not broader visibility.</p>
-    <p>The corporate wellness channel represents a $2.4M addressable market within a 25-mile radius, with budgets already allocated at target companies. This plan focuses there first.</p>
-  </div>
+    <div class="section">
+      <p class="section-label">The Starting Point</p>
+      <h2>Strong mission. <em>Invisible reach.</em></h2>
+      <p class="body-text">Youth Advocacy Alliance was doing meaningful, differentiated work — but operating as though word-of-mouth alone would carry a public health message. There was no consistent positioning, no clear articulation of who the program was for, and no channel strategy for reaching the communities, schools, and families who needed it most.</p>
+      <p class="body-text">The gap wasn't in the program. It was in how the program communicated its value — and to whom.</p>
 
-  <div class="section">
-    <p class="eyebrow">Ideal Client Profile</p>
-    <h2 class="section-heading">Who we're going after — and why</h2>
-    <div class="grid-2">
-      <div class="card">
-        <div class="card-label">Primary ICP — Corporate</div>
-        <div class="card-desc" style="font-size:0.8rem; line-height:1.9; margin-top:0.5rem;">
-          HR Directors &amp; People Ops leads at Boulder/Denver tech companies<br>
-          50–300 employees · $1M+ wellness budget<br>
-          Pain: employee burnout, benefit underutilization<br>
-          Decision timeline: Q1 and Q3 budget cycles<br>
-          Deal size: $8,000–$24,000/year
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-label">Secondary ICP — Direct Consumer</div>
-        <div class="card-desc" style="font-size:0.8rem; line-height:1.9; margin-top:0.5rem;">
-          Women 34–52, dual-income households<br>
-          Health-motivated, time-constrained<br>
-          Pain: energy, hormonal health, sustainable habits<br>
-          Channels: Instagram, Google, referral<br>
-          Deal size: $180–$420 per package
-        </div>
+      <div class="callout">
+        <p class="callout-label">Core finding</p>
+        <p>"The program had strong outcomes and zero visibility. The work was sound. The infrastructure around it wasn't."</p>
       </div>
     </div>
-  </div>
 
-  <div class="section">
-    <p class="eyebrow">Positioning</p>
-    <h2 class="section-heading">The one thing you need to own in the market</h2>
-    <p>Current positioning: <em>"Personalized nutrition for a healthier you"</em> — generic, forgettable, indistinguishable from 40 competitors in the metro area.</p>
-    <div class="callout">
-      <p><strong>Recommended positioning:</strong> "The nutrition partner for high-performing teams and the people running them." This owns the intersection of professional performance and personal health — a white space no local competitor holds.</p>
+    <hr class="section-rule">
+
+    <div class="section">
+      <p class="section-label">Audience Mapping</p>
+      <h2>Two audiences. <em>One message architecture.</em></h2>
+      <p class="body-text">The organization was trying to reach everyone — and landing with no one. The audit identified two distinct audiences with different motivations, different channels, and different definitions of value.</p>
+
+      <div class="audience-grid">
+        <div class="audience-card">
+          <p class="audience-card-label">Primary — Institutional</p>
+          <h3>School Districts &amp; Community Partners</h3>
+          <ul>
+            <li>K-12 administrators, counselors, PTAs</li>
+            <li>Pain: reactive mental health support, no preventive framework</li>
+            <li>Decision driver: evidence of outcomes + ease of implementation</li>
+            <li>Channel: direct outreach, district partnerships, educator events</li>
+          </ul>
+        </div>
+        <div class="audience-card">
+          <p class="audience-card-label">Secondary — Community</p>
+          <h3>Families &amp; Caregivers</h3>
+          <ul>
+            <li>Parents of children 6–16, community members</li>
+            <li>Pain: lack of language and tools to talk about mental health at home</li>
+            <li>Decision driver: trust, accessibility, peer recommendation</li>
+            <li>Channel: social media, community events, faith communities</li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <p>This positioning works for both ICPs: HR Directors buying for their teams, and individual clients who self-identify as high performers. One message, two doors.</p>
+
+    <hr class="section-rule">
+
+    <div class="section">
+      <p class="section-label">Positioning</p>
+      <h2>The one thing to <em>own in the market.</em></h2>
+      <p class="body-text">The previous framing centered on what the organization <em>was</em> rather than what it made possible for the people it served. Positioning was reoriented around the audience's outcome, not the organization's identity.</p>
+
+      <div class="callout">
+        <p class="callout-label">Before</p>
+        <p>"A nonprofit advancing children's mental health awareness."</p>
+      </div>
+      <div class="callout" style="border-color: var(--gold);">
+        <p class="callout-label" style="color: var(--gold);">After</p>
+        <p>"Giving kids the language to name what they feel — and adults the tools to respond."</p>
+      </div>
+
+      <p class="body-text" style="margin-top: 1.25rem;">This positioning works across both audiences: it speaks to the educator who needs a program students can actually use, and to the parent who doesn't know how to start the conversation. One message. Two doors in.</p>
+    </div>
+
+    <hr class="section-rule">
+
+    <div class="section">
+      <p class="section-label">Channel Strategy</p>
+      <h2>Where to show up — <em>and what to say.</em></h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Channel</th>
+              <th>Tactic</th>
+              <th>Goal</th>
+              <th>90-Day Target</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>District Outreach</td>
+              <td>Direct contact to school counselors and curriculum directors at 10 target districts</td>
+              <td>Program pilots</td>
+              <td>2 pilot commitments</td>
+            </tr>
+            <tr>
+              <td>Website &amp; Digital Presence</td>
+              <td>New site with clear audience pathways, program overview, and impact language</td>
+              <td>Credibility &amp; conversion</td>
+              <td>Live within 30 days</td>
+            </tr>
+            <tr>
+              <td>Social Media</td>
+              <td>3x/week content anchored to the "language for kids" positioning — educational, shareable</td>
+              <td>Community awareness</td>
+              <td>250 followers, 15 shares/week</td>
+            </tr>
+            <tr>
+              <td>Community Events</td>
+              <td>Host one free parent workshop to generate testimonials and referral network</td>
+              <td>Trust-building + proof</td>
+              <td>1 event, 25+ attendees</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <hr class="section-rule">
+
+    <div class="section">
+      <p class="section-label">Activation Roadmap</p>
+      <h2>The first moves, <em>in order.</em></h2>
+
+      <div class="roadmap">
+        <div class="roadmap-item">
+          <div class="roadmap-num">1</div>
+          <div class="roadmap-content">
+            <strong>Weeks 1–2: Positioning &amp; Digital Foundation</strong>
+            <p>Finalize positioning language. Build and launch website with clear audience pathways — one for educators/districts, one for families. Establish social channels with consistent voice and visual identity.</p>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-num">2</div>
+          <div class="roadmap-content">
+            <strong>Weeks 3–4: Institutional Outreach</strong>
+            <p>Build targeted list of school counselors and curriculum directors across 10 districts. Begin personalized outreach with a one-page program overview. Goal: 5 intro conversations in 30 days.</p>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-num">3</div>
+          <div class="roadmap-content">
+            <strong>Month 2: Community Activation</strong>
+            <p>Launch social content calendar. Identify 2–3 community organizations (faith communities, parent networks, recreation centers) as referral and event partners. Host the first free parent workshop.</p>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-num">4</div>
+          <div class="roadmap-content">
+            <strong>Month 3: Proof &amp; Momentum</strong>
+            <p>Gather testimonials from pilot partners and workshop attendees. Package outcomes data into a one-page impact brief for grant applications and district proposals. Confirm pilot commitments and set year-one enrollment targets.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="outcome-bar">
+        <div class="outcome-stat">
+          <span class="num">2</span>
+          <span class="label">District pilot commitments by end of quarter</span>
+        </div>
+        <div class="outcome-stat">
+          <span class="num">30</span>
+          <span class="label">Days to live digital presence from project start</span>
+        </div>
+        <div class="outcome-stat">
+          <span class="num">1</span>
+          <span class="label">Community event generating testimonials &amp; referrals</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  <div class="section">
-    <p class="eyebrow">Channel Strategy</p>
-    <h2 class="section-heading">Where to show up — and what to say</h2>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Channel</th>
-          <th>Tactic</th>
-          <th>Goal</th>
-          <th>90-Day Target</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="highlight">LinkedIn Outreach</td>
-          <td>Direct message to HR Directors at 50–300 person Boulder/Denver tech cos</td>
-          <td>Discovery calls</td>
-          <td>8 qualified calls</td>
-        </tr>
-        <tr>
-          <td class="highlight">Local B2B Referral</td>
-          <td>Partnership intro to 3 adjacent providers (therapists, PT, fitness studios)</td>
-          <td>Reciprocal referrals</td>
-          <td>2 active partners</td>
-        </tr>
-        <tr>
-          <td class="highlight">Instagram Content</td>
-          <td>3x/week educational content anchored to corporate performance angle</td>
-          <td>Inbound DMs + email list</td>
-          <td>150 new followers, 25 list adds</td>
-        </tr>
-        <tr>
-          <td class="highlight">Google (Local SEO)</td>
-          <td>Optimize GMB + 4 blog posts targeting "corporate nutritionist Boulder"</td>
-          <td>Organic search traffic</td>
-          <td>Top 3 for 2 target keywords</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="section">
-    <p class="eyebrow">90-Day Activation Roadmap</p>
-    <h2 class="section-heading">The first moves, in order</h2>
-    <ul class="action-list">
-      <li><span class="action-num">1</span><div><strong>Week 1–2:</strong> Rewrite website hero and services page with new positioning. Update LinkedIn profile. Create one-page corporate wellness overview PDF.</div></li>
-      <li><span class="action-num">2</span><div><strong>Week 3–4:</strong> Build LinkedIn outreach list of 60 HR targets. Begin 10 personalized outreach messages per week. Set up simple CRM (HubSpot free tier) to track pipeline.</div></li>
-      <li><span class="action-num">3</span><div><strong>Month 2:</strong> Launch content calendar. Begin referral partner conversations. Run a one-time "lunch &amp; learn" event for one target company at no cost to generate case study material.</div></li>
-      <li><span class="action-num">4</span><div><strong>Month 3:</strong> Review pipeline data. Double down on highest-converting channel. Formalize referral partner agreement with top 2 partners.</div></li>
-    </ul>
-  </div>
-
-  <div class="callout">
-    <p><strong>Revenue target, 90 days:</strong> 2 corporate contracts at $12,000 average = $24,000 new ARR. 8 new individual clients at $280 average package = $2,240. Total: <strong>$26,240 in new revenue from a standing start.</strong></p>
-  </div>
-
-  <div class="doc-footer">
-    <div class="doc-footer-brand">Twist &amp; Thrive Consulting</div>
-    <div class="doc-footer-note">Confidential · Sample deliverable for illustration purposes · consultwithatwist@gmail.com</div>
-  </div>
+  <footer class="footer">
+    <div class="footer-brand">Twist &amp; Thrive Consulting</div>
+    <div class="footer-note">Confidential · Sample deliverable for illustration purposes · consultwithatwist@gmail.com</div>
+  </footer>
 
 </body>
 </html>
