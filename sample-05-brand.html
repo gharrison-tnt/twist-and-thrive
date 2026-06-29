@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand & Digital Presence — Memory Care Project</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sand: #F5F0E8;
+      --cream: #FAF7F2;
+      --bark: #6B5C4E;
+      --earth: #5C4A3A;
+      --deep: #2E2318;
+      --teal: #4A9B8A;
+      --teal-light: #6ABCB0;
+      --gold: #C4A882;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--deep);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .header {
+      background: var(--deep);
+      padding: 1.25rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--sand);
+      letter-spacing: 0.03em;
+    }
+    .header-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+    }
+
+    .hero {
+      background: var(--deep);
+      padding: 4rem 2.5rem 3.5rem;
+      border-bottom: 1px solid rgba(196,168,130,0.2);
+    }
+    .meta-row {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .meta-item {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .meta-item span {
+      color: var(--teal-light);
+      margin-right: 0.4rem;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 400;
+      color: var(--sand);
+      line-height: 1.15;
+      max-width: 720px;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--teal-light);
+    }
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--gold);
+      max-width: 580px;
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    .content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 2.5rem 5rem;
+    }
+
+    .section { margin-bottom: 3.5rem; }
+
+    .section-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.6rem;
+    }
+
+    .section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 400;
+      color: var(--earth);
+      margin-bottom: 1.25rem;
+      line-height: 1.2;
+    }
+    .section h2 em { font-style: italic; color: var(--teal); }
+
+    .body-text {
+      font-size: 0.97rem;
+      color: var(--bark);
+      line-height: 1.75;
+      max-width: 680px;
+    }
+    .body-text + .body-text { margin-top: 1rem; }
+
+    .callout {
+      background: var(--sand);
+      border-left: 3px solid var(--teal);
+      padding: 1.5rem 1.75rem;
+      margin: 1.75rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .callout-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+    }
+    .callout p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: var(--earth);
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    /* BEFORE / AFTER */
+    .before-after {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin: 1.75rem 0;
+    }
+    @media (max-width: 600px) { .before-after { grid-template-columns: 1fr; } }
+    .ba-card { padding: 1.5rem; border-radius: 4px; }
+    .ba-card.before { background: var(--sand); border-top: 3px solid rgba(107,92,78,0.3); }
+    .ba-card.after  { background: var(--deep); border-top: 3px solid var(--teal); }
+    .ba-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .ba-card.before .ba-label { color: var(--bark); }
+    .ba-card.after  .ba-label { color: var(--teal-light); }
+    .ba-card ul { list-style: none; padding: 0; }
+    .ba-card ul li {
+      font-size: 0.85rem;
+      padding: 0.35rem 0;
+      border-bottom: 1px solid rgba(107,92,78,0.12);
+      display: flex;
+      gap: 0.6rem;
+      line-height: 1.4;
+    }
+    .ba-card.after ul li { border-color: rgba(255,255,255,0.08); }
+    .ba-card ul li:last-child { border-bottom: none; }
+    .ba-card.before ul li { color: var(--bark); }
+    .ba-card.after  ul li { color: var(--gold); }
+    .ba-card.before ul li::before { content: '–'; color: var(--bark); opacity: 0.45; flex-shrink: 0; }
+    .ba-card.after  ul li::before { content: '✓'; color: var(--teal-light); flex-shrink: 0; }
+
+    /* 5 STEPS TABLE */
+    .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+    th {
+      background: var(--deep);
+      color: var(--sand);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+    td {
+      padding: 0.85rem 1rem;
+      color: var(--bark);
+      border-bottom: 1px solid rgba(107,92,78,0.15);
+      vertical-align: top;
+      line-height: 1.55;
+    }
+    tr:nth-child(even) td { background: var(--sand); }
+    td:first-child { font-weight: 600; color: var(--earth); white-space: nowrap; }
+
+    /* DELIVERABLES GRID */
+    .deliverables {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 700px) { .deliverables { grid-template-columns: 1fr; } }
+    .deliverable-card {
+      background: var(--sand);
+      padding: 1.5rem;
+      border-radius: 4px;
+    }
+    .deliverable-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: var(--teal);
+      font-weight: 400;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .deliverable-card h3 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--earth);
+      margin-bottom: 0.5rem;
+    }
+    .deliverable-card p {
+      font-size: 0.82rem;
+      color: var(--bark);
+      line-height: 1.55;
+    }
+
+    /* PLATFORM CALLOUT — special treatment */
+    .platform-card {
+      background: var(--deep);
+      border-radius: 6px;
+      padding: 2rem 2.25rem;
+      margin: 1.75rem 0;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: center;
+    }
+    @media (max-width: 600px) { .platform-card { grid-template-columns: 1fr; } }
+    .platform-card-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+      margin-bottom: 0.5rem;
+    }
+    .platform-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--sand);
+      margin-bottom: 0.75rem;
+    }
+    .platform-card p {
+      font-size: 0.875rem;
+      color: var(--gold);
+      line-height: 1.65;
+    }
+    .platform-link {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+      text-decoration: none;
+      border: 1px solid var(--teal);
+      padding: 0.6rem 1.25rem;
+      border-radius: 3px;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .platform-link:hover { background: var(--teal); color: white; }
+
+    /* ROADMAP */
+    .roadmap { margin: 1.5rem 0; display: flex; flex-direction: column; gap: 1rem; }
+    .roadmap-item { display: flex; gap: 1.25rem; align-items: flex-start; }
+    .roadmap-num {
+      width: 2rem; height: 2rem; border-radius: 50%;
+      background: var(--teal); color: white;
+      font-size: 0.75rem; font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 0.1rem;
+    }
+    .roadmap-content strong {
+      display: block; font-weight: 600; color: var(--earth);
+      font-size: 0.9rem; margin-bottom: 0.25rem;
+    }
+    .roadmap-content p { font-size: 0.875rem; color: var(--bark); line-height: 1.6; }
+
+    /* OUTCOME BAR */
+    .outcome-bar {
+      background: var(--deep);
+      border-radius: 6px;
+      padding: 2rem 2.25rem;
+      margin: 2rem 0 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 600px) { .outcome-bar { grid-template-columns: 1fr; } }
+    .outcome-stat { text-align: center; }
+    .outcome-stat .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem; font-weight: 400;
+      color: var(--teal-light); display: block;
+      line-height: 1; margin-bottom: 0.3rem;
+    }
+    .outcome-stat .label {
+      font-size: 0.72rem; font-weight: 400;
+      color: var(--gold); letter-spacing: 0.05em; line-height: 1.4;
+    }
+
+    hr.section-rule {
+      border: none;
+      border-top: 1px solid rgba(107,92,78,0.15);
+      margin: 3rem 0;
+    }
+
+    .footer {
+      background: var(--sand);
+      border-top: 1px solid rgba(107,92,78,0.15);
+      padding: 1.5rem 2.5rem;
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 0.5rem;
+    }
+    .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; color: var(--bark); }
+    .footer-note { font-size: 0.72rem; color: var(--bark); opacity: 0.65; }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-brand">Twist &amp; Thrive Consulting</div>
+    <div class="header-label">Sample Deliverable</div>
+  </header>
+
+  <div class="hero">
+    <div class="meta-row">
+      <div class="meta-item"><span>Project</span>Memory Care Project</div>
+      <div class="meta-item"><span>Service</span>Brand &amp; Digital Presence</div>
+      <div class="meta-item"><span>Sector</span>Memory Care &amp; Assisted Living</div>
+    </div>
+    <h1>Families decide<br>with their gut.<br><em>Your brand has<br>to earn that.</em></h1>
+    <p class="hero-sub">A purpose-built brand, live website, free family assessment tool, and operations platform for a practice dedicated to closing the family experience gap in memory care communities.</p>
+  </div>
+
+  <div class="content">
+
+    <div class="section">
+      <p class="section-label">The Problem</p>
+      <h2>The care was excellent. <em>The gap was in how it felt.</em></h2>
+      <p class="body-text">Memory care communities routinely deliver skilled, compassionate care — and still lose families to early move-outs, negative reviews, and eroded trust. The problem isn't the care quality. It's the experience gap: what staff know and do versus what families see, hear, and believe.</p>
+      <p class="body-text">Poor communication drives more move-outs than poor care. Staff burn out and leave because hard conversations go unsupported. Referral pipelines stall because families don't have language to recommend a community they only half-understood. The gap needed a name, a framework, and a brand that could carry it to the operators who needed it most.</p>
+
+      <div class="callout">
+        <p class="callout-label">The insight that shaped everything</p>
+        <p>"The quality of care and the experience of care are not the same thing. Closing that gap is where trust lives."</p>
+      </div>
+    </div>
+
+    <hr class="section-rule">
+
+    <div class="section">
+      <p class="section-label">Before &amp; After</p>
+      <h2>From concept to <em>credible, live presence.</em></h2>
+      <p class="body-text">Memory Care Project was built from scratch — no existing brand, no website, no framework. What existed was deep domain expertise, lived family experience, and a clear point of view on what memory care communities were getting wrong. The work was to make all of that visible and usable.</p>
+
+      <div class="before-after">
+        <div class="ba-card before">
+          <p class="ba-label">Starting Point</p>
+          <ul>
+            <li>No brand, no website, no digital presence</li>
+            <li>No name for the framework or methodology</li>
+            <li>No structured way for families to self-assess their situation</li>
+            <li>No clear articulation of what made this approach different</li>
+            <li>Two audiences (families and operators) with no distinct pathways</li>
+            <li>Expertise that existed only in conversation — not on the page</li>
+          </ul>
+        </div>
+        <div class="ba-card after">
+          <p class="ba-label">What Was Built</p>
+          <ul>
+            <li>Live brand with name, positioning, and visual identity</li>
+            <li>The 5 Steps Method — named, structured, and publicly documented</li>
+            <li>Free family assessment tool at memorycareproject.vercel.app/assessment</li>
+            <li>Clear positioning: closing the family experience gap</li>
+            <li>Separate pathways for families in crisis and operators seeking change</li>
+            <li>Four distinct service tiers with scoped deliverables</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-rule">
+
+    <div class="section">
+      <p class="section-label">The Framework</p>
+      <h2>Five pillars. <em>One named methodology.</em></h2>
+      <p class="body-text">A core part of the brand work was making the methodology concrete and ownable. The 5 Steps Method gives operators a shared language for the work — and gives families a way to evaluate whether a community is taking experience seriously.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Pillar</th>
+              <th>What It Addresses</th>
+              <th>Why It Matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>01 · Communication</td>
+              <td>Proactive touchpoints that keep families informed; structured support for difficult conversations</td>
+              <td>The #1 driver of early move-out is families feeling left out — not care quality</td>
+            </tr>
+            <tr>
+              <td>02 · Trust</td>
+              <td>Transparency, follow-through, and treating families as partners rather than problems</td>
+              <td>Trust is built in small moments — and destroyed in single ones</td>
+            </tr>
+            <tr>
+              <td>03 · Education</td>
+              <td>Dementia literacy for families; skills and resilience training for direct care staff</td>
+              <td>Informed families escalate less. Trained staff stay longer.</td>
+            </tr>
+            <tr>
+              <td>04 · Engagement</td>
+              <td>Meaningful connection between families, residents, and care staff across the full journey</td>
+              <td>Families who feel present become a community's most credible referral source</td>
+            </tr>
+            <tr>
+              <td>05 · Responsiveness</td>
+              <td>Systems ensuring no concern goes unanswered and no staff member feels abandoned under pressure</td>
+              <td>Speed and consistency of response is what families remember most</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <hr class="section-rule">
+
+    <div class="section">
+      <p class="section-label">What Was Delivered</p>
+      <h2>A live brand and two <em>working tools.</em></h2>
+      <p class="body-text">This engagement didn't end with a strategy deck. It ended with a live site, a functional assessment tool families can use today, and a platform in active development. Every deliverable was built, not recommended.</p>
+
+      <div class="deliverables">
+        <div class="deliverable-card">
+          <div class="deliverable-num">01</div>
+          <h3>Brand &amp; Positioning</h3>
+          <p>Name, visual identity, messaging hierarchy, and the core positioning statement — "closing the family experience gap" — built to work for both family and operator audiences.</p>
+        </div>
+        <div class="deliverable-card">
+          <div class="deliverable-num">02</div>
+          <h3>Live Website</h3>
+          <p>Full site at memorycareproject.vercel.app — structured around the 5 Steps Method, four service tiers, founder story, and Calendly-integrated booking. Built and deployed during the engagement.</p>
+        </div>
+        <div class="deliverable-card">
+          <div class="deliverable-num">03</div>
+          <h3>Free Family Assessment</h3>
+          <p>A structured self-assessment tool at /assessment — helping families evaluate their situation and take a first step before any sales conversation. Provides real value before the relationship begins.</p>
+        </div>
+      </div>
+
+      <div class="platform-card">
+        <div>
+          <p class="platform-card-label">In Development</p>
+          <h3>Staff Observation &amp; Family Communication Platform</h3>
+          <p>A purpose-built web application reducing documentation burden while improving the quality and consistency of family updates — extending the methodology into the daily operations of the community. Built on the same technical foundation as the live site.</p>
+        </div>
+        <a class="platform-link" href="https://memorycareproject.vercel.app" target="_blank">View Live Site ↗</a>
+      </div>
+    </div>
+
+    <hr class="section-rule">
+
+    <div class="section">
+      <p class="section-label">How We Got There</p>
+      <h2>Strategy first. <em>Story second. Build third.</em></h2>
+
+      <div class="roadmap">
+        <div class="roadmap-item">
+          <div class="roadmap-num">1</div>
+          <div class="roadmap-content">
+            <strong>Audience &amp; Positioning Clarity</strong>
+            <p>Mapped the two audiences — families in crisis and operators seeking change — and developed distinct messaging for each. Defined "the family experience gap" as the ownable concept the entire brand would anchor to.</p>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-num">2</div>
+          <div class="roadmap-content">
+            <strong>Framework Development</strong>
+            <p>Structured the 5 Steps Method from existing expertise — naming and sequencing the pillars so they were teachable, referenceable, and differentiated from generic memory care consulting language.</p>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-num">3</div>
+          <div class="roadmap-content">
+            <strong>Site Architecture &amp; Copy</strong>
+            <p>Built the site structure around how each audience makes decisions, not around a service list. Every section has a single job and a single reader in mind.</p>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-num">4</div>
+          <div class="roadmap-content">
+            <strong>Assessment Tool &amp; Platform Build</strong>
+            <p>Built the free family assessment as a live tool — not a PDF download. Began development of the staff observation and family communication platform as a natural extension of the methodology into community operations.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="outcome-bar">
+        <div class="outcome-stat">
+          <span class="num">2</span>
+          <span class="label">Live tools built and deployed — website and free family assessment</span>
+        </div>
+        <div class="outcome-stat">
+          <span class="num">5</span>
+          <span class="label">Pillar methodology named, structured, and publicly documented</span>
+        </div>
+        <div class="outcome-stat">
+          <span class="num">1</span>
+          <span class="label">Operations platform in active development, extending the work</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="footer-brand">Twist &amp; Thrive Consulting</div>
+    <div class="footer-note">Confidential · Sample deliverable for illustration purposes · consultwithatwist@gmail.com</div>
+  </footer>
+
+</body>
+</html>
