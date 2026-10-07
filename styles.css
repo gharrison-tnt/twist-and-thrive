@@ -135,6 +135,8 @@ figcaption { font-size: 0.9rem; color: var(--bark); margin-top: 0.75rem; }
 .more-work div { padding: 1.4rem 0; border-top: 1px solid var(--line); }
 .more-work h3 { font-size: 1.3rem; }
 .more-work p { color: var(--earth); font-size: 0.98rem; }
+.more-work p.more-link { margin-top: 0.6rem; font-size: 0.95rem; }
+.more-work p.more-link a { font-weight: 500; }
 @media (max-width: 760px) { .more-work { grid-template-columns: 1fr; } }
 
 /* price ladder */
