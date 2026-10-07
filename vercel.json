@@ -1,0 +1,36 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/sample-01-clarity-audit.html",
+      "destination": "/pricing",
+      "permanent": true
+    },
+    {
+      "source": "/sample-02-gtm-strategy.html",
+      "destination": "/services/go-to-market",
+      "permanent": true
+    },
+    {
+      "source": "/sample-03-automation.html",
+      "destination": "/services/client-systems",
+      "permanent": true
+    },
+    {
+      "source": "/sample-04-pricing.html",
+      "destination": "/services/pricing-and-offers",
+      "permanent": true
+    },
+    {
+      "source": "/sample-05-brand.html",
+      "destination": "/services/websites",
+      "permanent": true
+    },
+    {
+      "source": "/sample-06-fractional.html",
+      "destination": "/pricing",
+      "permanent": true
+    }
+  ]
+}
