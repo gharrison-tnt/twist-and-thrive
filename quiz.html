@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Time Leak Quiz: where does your week go? | Twist &amp; Thrive</title>
+<meta name="description" content="A free 3-minute quiz for small business owners. See roughly how many hours and dollars manual work costs you each week, your top time leaks, and what you could do about them. No email needed for your results.">
+<link rel="canonical" href="https://twistandthrive.com/quiz">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Twist &amp; Thrive Systems">
+<meta property="og:title" content="Time Leak Quiz: where does your week go?">
+<meta property="og:description" content="A free 3-minute quiz for small business owners. See where your week goes and what you could get back. No email needed for your results.">
+<meta property="og:url" content="https://twistandthrive.com/quiz">
+<meta property="og:image" content="https://twistandthrive.com/images/k5-portal.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Gina Harrison">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://twistandthrive.com/"}, {"@type": "ListItem", "position": 2, "name": "Time Leak Quiz", "item": "https://twistandthrive.com/quiz"}]}, {"@type": "WebApplication", "name": "Time Leak Quiz", "url": "https://twistandthrive.com/quiz", "applicationCategory": "BusinessApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "provider": {"@id": "https://twistandthrive.com/#business"}, "description": "A free 3-minute quiz that estimates how many hours and dollars manual work costs a small business each week, and names the top time leaks."}]}</script>
+<style>
+  /* ---------- Quiz ---------- */
+  .quiz { padding: 0; }
+  .quiz-screen { display: none; padding: 0; }
+  .quiz-screen.active { display: block; }
+  .quiz-inner { max-width: 44rem; margin: 0 auto; padding: 3.5rem 1.5rem 4.5rem; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; }
+  .eyebrow::before { content: ""; width: 1.25rem; height: 1px; background: var(--teal); }
+  .quiz h1 { font-size: clamp(2.3rem, 5vw, 3.6rem); }
+  .quiz h1 em { font-style: italic; color: var(--teal); }
+
+  /* intro */
+  .story { margin: 1.75rem 0 0; padding: 1.25rem 1.5rem; border-left: 2px solid var(--teal-bright); background: var(--sand); color: var(--earth); border-radius: 0 10px 10px 0; }
+  .meta-strip { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin: 2rem 0; background: #fff; }
+  .meta-strip div { padding: 0.9rem 1.1rem; border-right: 1px solid var(--line); }
+  .meta-strip div:last-child { border-right: 0; }
+  .meta-strip strong { display: block; font-family: var(--serif); font-size: 1.5rem; font-weight: 500; line-height: 1.1; }
+  .meta-strip span { font-size: 0.9rem; color: var(--bark); }
+  @media (max-width: 560px) { .meta-strip { grid-template-columns: 1fr; } .meta-strip div { border-right: 0; border-bottom: 1px solid var(--line); } .meta-strip div:last-child { border-bottom: 0; } }
+  button.btn { cursor: pointer; font-family: var(--sans); }
+  button.btn-line { cursor: pointer; font-family: var(--sans); background: transparent; font-size: 1rem; }
+  .btn[disabled] { opacity: 0.45; cursor: not-allowed; }
+  .btn[disabled]:hover { background: var(--teal); border-color: var(--teal); }
+
+  /* progress */
+  .progress { position: sticky; top: 72px; z-index: 50; background: rgba(250, 247, 242, 0.96); border-bottom: 1px solid var(--line); }
+  .progress .wrap { max-width: 44rem; padding-top: 0.75rem; padding-bottom: 0.75rem; }
+  .progress-top { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.9rem; color: var(--bark); margin-bottom: 0.5rem; }
+  .progress-top strong { color: var(--teal); font-weight: 500; }
+  .bar { height: 5px; background: var(--sand-mid); border-radius: 999px; overflow: hidden; }
+  .bar i { display: block; height: 100%; width: 0; background: var(--teal); border-radius: 999px; transition: width 0.35s ease; }
+
+  /* question */
+  .q-fieldset { border: 0; }
+  .q-legend { font-family: var(--serif); font-size: clamp(1.75rem, 3.6vw, 2.4rem); font-weight: 500; line-height: 1.2; color: var(--deep); margin-bottom: 0.75rem; padding: 0; }
+  .q-legend:focus { outline: none; }
+  .q-help { color: var(--bark); font-size: 0.98rem; margin-bottom: 1.25rem; }
+  .options { display: grid; gap: 0.65rem; margin-top: 1.25rem; }
+  .opt { position: relative; }
+  .opt input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .opt label { display: flex; align-items: center; gap: 0.9rem; padding: 1rem 1.15rem; min-height: 3.5rem; background: #fff; border: 1.5px solid var(--line); border-radius: 12px; cursor: pointer; transition: border-color 0.15s, background 0.15s; font-size: 1.02rem; }
+  .opt label::before { content: ""; flex: 0 0 auto; width: 1.15rem; height: 1.15rem; border-radius: 50%; border: 1.5px solid var(--bark); background: #fff; box-shadow: inset 0 0 0 3px #fff; }
+  .opt label:hover { border-color: var(--teal-light); background: var(--cream); }
+  .opt input:checked + label { border-color: var(--teal); background: var(--teal-pale); }
+  .opt input:checked + label::before { border-color: var(--teal); background: var(--teal); }
+  .opt input:focus-visible + label { outline: 2px solid var(--teal-bright); outline-offset: 2px; }
+  .not-alone { margin-top: 1.25rem; padding: 1rem 1.2rem; background: var(--sand); border-radius: 10px; color: var(--earth); font-size: 0.98rem; opacity: 0; transform: translateY(6px); transition: opacity 0.35s, transform 0.35s; }
+  .not-alone.show { opacity: 1; transform: none; }
+  .q-nav { display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; margin-top: 2rem; flex-wrap: wrap; }
+  .q-nav .right { display: flex; gap: 0.75rem; align-items: center; }
+  .linkish { background: none; border: 0; color: var(--teal); font: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; padding: 0.5rem 0; }
+
+  /* results */
+  .results-head { background: var(--deep); color: var(--sand); }
+  .results-head .quiz-inner { padding-bottom: 3rem; }
+  .results-head .eyebrow { color: var(--teal-light); }
+  .results-head .eyebrow::before { background: var(--teal-light); }
+  .results-head h1 { color: var(--cream); font-size: clamp(2rem, 4.4vw, 3.1rem); }
+  .results-head h1 em { color: var(--teal-light); }
+  .results-head .verdict { margin-top: 1.25rem; color: rgba(245, 240, 232, 0.85); font-size: 1.1rem; }
+  .results-head .verdict strong { color: var(--cream); font-weight: 500; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #fff; margin-top: -1.75rem; position: relative; }
+  .stat { padding: 1.25rem 1.2rem; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: 0; }
+  .stat .k { font-size: 0.85rem; color: var(--bark); display: block; }
+  .stat .v { font-family: var(--serif); font-size: 2rem; font-weight: 500; line-height: 1.15; color: var(--deep); display: block; margin-top: 0.2rem; }
+  .stat .v small { font-family: var(--sans); font-size: 0.85rem; color: var(--bark); font-weight: 400; }
+  .stat.hl { background: var(--teal-pale); }
+  .stat.hl .v { color: var(--teal); }
+  @media (max-width: 640px) { .stats { grid-template-columns: 1fr; } .stat { border-right: 0; border-bottom: 1px solid var(--line); } .stat:last-child { border-bottom: 0; } }
+  .money-line { margin-top: 1.5rem; color: var(--earth); }
+  .calc { margin-top: 1rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .calc summary { cursor: pointer; padding: 0.9rem 0; font-weight: 500; color: var(--teal); list-style: none; }
+  .calc summary::-webkit-details-marker { display: none; }
+  .calc summary::after { content: " +"; }
+  .calc[open] summary::after { content: " \2013"; }
+  .calc .calc-body { padding: 0 0 1.25rem; color: var(--earth); font-size: 0.98rem; }
+  .calc table { width: 100%; border-collapse: collapse; margin-top: 0.75rem; font-size: 0.95rem; }
+  .calc td { padding: 0.45rem 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .calc td:last-child { text-align: right; white-space: nowrap; padding-left: 1rem; }
+  .missed { margin-top: 1.5rem; padding: 1.1rem 1.25rem; border: 1px dashed var(--gold); border-radius: 12px; color: var(--earth); font-size: 0.98rem; }
+  .missed strong { color: var(--deep); font-weight: 500; }
+  .res-section { margin-top: 3rem; }
+  .res-section h2 { font-size: clamp(1.7rem, 3vw, 2.2rem); }
+  .leak { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.4rem 1.5rem; margin-top: 1rem; }
+  .leak-top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+  .leak h3 { font-size: 1.5rem; margin: 0; }
+  .leak .back { font-size: 0.92rem; color: var(--teal); font-weight: 500; white-space: nowrap; }
+  .leak .instead { margin-top: 0.6rem; color: var(--earth); }
+  .leak dl { margin-top: 1rem; display: grid; gap: 0.6rem; }
+  .leak dl div { display: grid; grid-template-columns: 9.5rem 1fr; gap: 0.75rem; font-size: 0.97rem; }
+  .leak dt { color: var(--bark); }
+  @media (max-width: 560px) { .leak dl div { grid-template-columns: 1fr; gap: 0.1rem; } }
+  .leak .more { display: inline-block; margin-top: 0.9rem; font-size: 0.95rem; font-weight: 500; }
+  .tweaks { margin: 1rem 0 0 1.15rem; color: var(--earth); }
+  .tweaks li { margin-bottom: 0.5rem; }
+  .alone { margin-top: 3rem; font-family: var(--serif); font-size: 1.4rem; line-height: 1.5; border-left: 2px solid var(--teal-bright); padding-left: 1.4rem; color: var(--deep); }
+  .next-box { margin-top: 3rem; background: var(--sand); border-radius: 16px; padding: 2rem; }
+  .next-box h2 { margin-bottom: 0.6rem; }
+  .next-box p { color: var(--earth); }
+  .next-box .opener { margin-top: 1rem; font-style: italic; }
+  .report { margin-top: 2rem; border: 1px solid var(--line); border-radius: 16px; padding: 2rem; background: #fff; }
+  .report h2 { font-size: clamp(1.6rem, 3vw, 2rem); margin-bottom: 0.5rem; }
+  .report p.sub { color: var(--earth); }
+  .fields { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.25rem; }
+  .fields .full { grid-column: 1 / -1; }
+  @media (max-width: 560px) { .fields { grid-template-columns: 1fr; } }
+  .field label { display: block; font-size: 0.92rem; font-weight: 500; margin-bottom: 0.35rem; }
+  .field label span { font-weight: 400; color: var(--bark); }
+  .field input { width: 100%; font: inherit; padding: 0.75rem 0.9rem; border: 1.5px solid var(--line); border-radius: 10px; background: var(--cream); color: var(--deep); }
+  .field input:focus { outline: 2px solid var(--teal-bright); outline-offset: 1px; border-color: var(--teal); }
+  .consent { display: flex; gap: 0.7rem; align-items: flex-start; margin-top: 1.1rem; font-size: 0.97rem; color: var(--earth); }
+  .consent input { margin-top: 0.3rem; width: 1.1rem; height: 1.1rem; accent-color: var(--teal); flex: 0 0 auto; }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .form-msg { margin-top: 1rem; font-size: 0.98rem; }
+  .form-msg.err { color: #9A3B2E; }
+  .form-msg.ok { color: var(--teal); font-weight: 500; }
+  .res-actions { display: flex; gap: 1.25rem; flex-wrap: wrap; margin-top: 2rem; font-size: 0.97rem; }
+  .privacy { border-top: 1px solid var(--line); padding: 0; }
+  .privacy .quiz-inner { padding-top: 2.5rem; padding-bottom: 3rem; }
+  .privacy h2 { font-size: 1.6rem; }
+  .privacy ul { margin: 0.75rem 0 0 1.15rem; color: var(--earth); font-size: 0.97rem; }
+  .privacy li { margin-bottom: 0.4rem; }
+
+  @media print {
+    .site-nav, footer, .progress, .q-nav, .report, .res-actions, .privacy, .skip, .next-box .btn { display: none !important; }
+    .results-head { background: #fff; color: #000; }
+    .results-head h1, .results-head .verdict, .results-head .verdict strong { color: #000; }
+    .stats { margin-top: 0; }
+    .calc[open] summary, .calc summary { color: #000; }
+    .leak, .next-box { break-inside: avoid; }
+    .calc .calc-body { display: block; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-nav">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="Twist and Thrive Systems home"><svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="40" cy="40" r="38" stroke="#4A9B8A" stroke-width="1.5" opacity="0.3"/><path d="M40,4 A36,36 0 1,1 3,38 A28,28 0 1,0 40,12 A20,20 0 1,1 19,29 A13,13 0 1,0 40,27 A7,7 0 1,1 34,38 A3,3 0 0,0 40,41" stroke="#4A9B8A" stroke-width="3.5" stroke-linecap="round"/><circle cx="40" cy="40" r="2.5" fill="#4A9B8A"/></svg><span>Twist &amp; Thrive</span></a>
+    <nav aria-label="Main">
+      <ul class="nav-links"><li><a href="/work">Work</a></li><li><a href="/services">Services</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/about">About</a></li><li><a href="/faq">FAQ</a></li><li><a href="/quiz" aria-current="page">Free quiz</a></li><li><a class="btn btn-sm" href="/contact">Book a call</a></li></ul>
+      <details class="nav-menu"><summary>Menu</summary><ul><li><a href="/work">Work</a></li><li><a href="/services">Services</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/about">About</a></li><li><a href="/faq">FAQ</a></li><li><a href="/quiz">Free quiz</a></li><li><a href="/contact">Book a call</a></li></ul></details>
+    </nav>
+  </div>
+</header>
+<main id="main" class="quiz">
+
+  <!-- INTRO -->
+  <section class="quiz-screen active" id="screen-intro" aria-labelledby="intro-title">
+    <div class="quiz-inner">
+      <span class="eyebrow">Free · 3 minutes</span>
+      <h1 id="intro-title" tabindex="-1">Where does your <em>week</em> actually go?</h1>
+      <p class="lede" style="margin-top:1.25rem">You don't have a lot of spare time, so this takes 3 minutes. It looks at the everyday tasks that quietly eat your week, and shows roughly what they cost you.</p>
+      <div class="meta-strip" role="list">
+        <div role="listitem"><strong>3 min</strong><span>About 15 quick questions</span></div>
+        <div role="listitem"><strong>Your numbers</strong><span>Hours, dollars, top time leaks</span></div>
+        <div role="listitem"><strong>No email</strong><span>Needed to see your results</span></div>
+      </div>
+      <button class="btn" type="button" id="start-btn">Start the quiz</button>
+      <p class="story">Small businesses are being asked to do more than ever. Customers expect faster replies, easier booking, and a personal touch every time, and owners are expected to deliver it with the same small team, or less. Twist &amp; Thrive Systems grew out of that squeeze: helping small businesses adapt to a market that keeps changing, so owners can stay on top of more without working more.</p>
+      <p class="small" style="margin-top:1.25rem">Your answers stay anonymous unless you ask for the emailed report. <a href="#privacy">What's collected and why</a>.</p>
+    </div>
+  </section>
+
+  <!-- QUESTIONS -->
+  <section class="quiz-screen" id="screen-quiz" aria-label="Quiz questions">
+    <div class="progress">
+      <div class="wrap">
+        <div class="progress-top"><strong id="p-part">About you</strong><span id="p-count" aria-live="polite">Question 1 of 15</span></div>
+        <div class="bar" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="p-bar"><i></i></div>
+      </div>
+    </div>
+    <div class="quiz-inner">
+      <form id="q-form" novalidate>
+        <fieldset class="q-fieldset">
+          <legend class="q-legend" id="q-text" tabindex="-1"></legend>
+          <p class="q-help" id="q-help" hidden></p>
+          <div class="options" id="q-options"></div>
+        </fieldset>
+        <p class="not-alone" id="q-alone" aria-live="polite" hidden></p>
+        <div class="q-nav">
+          <button type="button" class="linkish" id="back-btn">Back</button>
+          <div class="right">
+            <button type="button" class="linkish" id="skip-btn" hidden>Skip</button>
+            <button type="submit" class="btn" id="next-btn" disabled>Next</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="quiz-screen" id="screen-results" aria-labelledby="r-headline">
+    <div class="results-head">
+      <div class="quiz-inner">
+        <span class="eyebrow">Your results</span>
+        <h1 id="r-headline" tabindex="-1"></h1>
+        <p class="verdict" id="r-verdict"></p>
+      </div>
+    </div>
+    <div class="quiz-inner" style="padding-top:0">
+      <div class="stats" id="r-stats"></div>
+      <p class="money-line" id="r-money"></p>
+      <details class="calc" id="r-calc">
+        <summary>How we calculated this</summary>
+        <div class="calc-body" id="r-calc-body"></div>
+      </details>
+      <div class="missed" id="r-missed" hidden></div>
+
+      <div class="res-section" id="r-leaks-wrap"></div>
+
+      <p class="alone" id="r-alone" hidden>None of this means you're behind. The market keeps asking more of small businesses. This is about making sure your systems keep up, so you don't have to carry it all yourself.</p>
+
+      <div class="next-box" id="r-next"></div>
+
+      <div class="report" id="r-report">
+        <h2>Want your full report with step-by-step fixes?</h2>
+        <p class="sub">I'll email it to you. Your numbers, your top time leaks, and simple fixes you can try on your own.</p>
+        <form id="lead-form" novalidate>
+          <div class="fields">
+            <div class="field"><label for="f-name">First name</label><input id="f-name" name="firstName" autocomplete="given-name" required></div>
+            <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+            <div class="field full"><label for="f-biz">Business name <span>(optional)</span></label><input id="f-biz" name="business" autocomplete="organization"></div>
+          </div>
+          <div class="hp" aria-hidden="true"><label for="f-website">Leave this empty</label><input id="f-website" name="website" tabindex="-1" autocomplete="off"></div>
+          <label class="consent"><input type="checkbox" id="f-consent" name="consent"> <span>Send me my report and occasional tips. Unsubscribe anytime.</span></label>
+          <div style="margin-top:1.25rem"><button class="btn" type="submit" id="lead-btn">Email my report</button></div>
+          <p class="form-msg" id="lead-msg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <div class="res-actions">
+        <button type="button" class="linkish" id="print-btn">Save or print these results</button>
+        <button type="button" class="linkish" id="restart-btn">Start over</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIVACY -->
+  <section class="privacy" id="privacy" aria-labelledby="privacy-title">
+    <div class="quiz-inner">
+      <h2 id="privacy-title">Your privacy, in plain language</h2>
+      <ul>
+        <li><strong>What's collected:</strong> your quiz answers and results, saved without your name or email. If you ask for the emailed report, your first name, email, and business name (if you add it) are saved separately and linked to those results.</li>
+        <li><strong>Why:</strong> to send the report you asked for, to follow up a few times with tips, and to improve the quiz estimates over time.</li>
+        <li><strong>What's never asked:</strong> client names, account or payment details, health information, or passwords.</li>
+        <li><strong>How long:</strong> anonymous answers are kept for up to 24 months. Contact details are kept until you unsubscribe or ask me to delete them.</li>
+        <li><strong>Deleting your data:</strong> email <a href="mailto:consultwithatwist@gmail.com">consultwithatwist@gmail.com</a> and I'll delete it.</li>
+        <li><strong>Sharing:</strong> quiz data is never sold or shared.</li>
+      </ul>
+      <p class="small" style="margin-top:1rem">All numbers are estimates based on your answers, not guarantees.</p>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <div>
+      <p class="name">Twist &amp; Thrive Systems</p>
+      <p>Booking, client systems, websites, and pricing for small independent businesses. Built by Gina Harrison in Boulder County, Colorado.</p>
+      <p style="margin-top:1rem"><a href="mailto:consultwithatwist@gmail.com">consultwithatwist@gmail.com</a></p>
+    </div>
+    <ul aria-label="Services">
+      <li><a href="/services/client-systems">Stop Losing Appointments</a></li>
+      <li><a href="/services/pricing-and-offers">Get Paid What You're Worth</a></li>
+      <li><a href="/services/websites">Get Found</a></li>
+      <li><a href="/work">Custom builds</a></li>
+      <li><a href="/quiz">Time Leak Quiz</a></li>
+    </ul>
+    <ul aria-label="More">
+      <li><a href="/work">Work</a></li>
+      <li><a href="/pricing">Pricing</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/faq">FAQ</a></li>
+      <li><a href="/ai-and-security">AI and security</a></li>
+      <li><a href="/memory-care">Memory Care Project</a></li>
+      <li><a href="/contact">Book a call</a></li>
+    </ul>
+    <p class="legal">&copy; 2026 Twist &amp; Thrive Systems. Boulder, Lafayette, Louisville, Denver, and remote.</p>
+  </div>
+</footer>
+
+<script src="/quiz-scoring.js"></script>
+<script>
+(function () {
+  'use strict';
+  var Q = window.TimeLeakQuiz;
+  var BOOKING = '/contact?from=quiz';
+  var STORE = 'tlq-v1';
+
+  var state = { answers: {}, index: 0, responseId: null, saved: false };
+
+  // ---------- helpers ----------
+  function $(id) { return document.getElementById(id); }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function money(n) { return Q.money(n); }
+  function track(name, data) { try { if (window.va) window.va('event', { name: name, data: data || {} }); } catch (e) {} }
+  function save() { try { sessionStorage.setItem(STORE, JSON.stringify(state)); } catch (e) {} }
+  function load() {
+    try { var s = JSON.parse(sessionStorage.getItem(STORE) || 'null'); if (s && s.answers) state = s; } catch (e) {}
+  }
+  function show(id) {
+    ['screen-intro', 'screen-quiz', 'screen-results'].forEach(function (s) { $(s).classList.toggle('active', s === id); });
+    $('privacy').hidden = (id === 'screen-quiz');
+    window.scrollTo(0, 0);
+  }
+  function list() { return Q.visibleQuestions(state.answers); }
+  function coreCount() { return Q.QUESTIONS.filter(function (q) { return q.type !== 'revenue'; }).length; }
+
+  // ---------- question screen ----------
+  function renderQuestion(focus) {
+    var qs = list();
+    if (state.index >= qs.length) return finish();
+    var q = qs[state.index];
+    var total = Math.max(coreCount(), qs.length);
+    var n = state.index + 1;
+
+    $('p-part').textContent = q.part;
+    $('p-count').textContent = 'Question ' + n + ' of ' + total;
+    var pct = Math.round((state.index / total) * 100);
+    $('p-bar').setAttribute('aria-valuenow', pct);
+    $('p-bar').firstElementChild.style.width = pct + '%';
+
+    $('q-text').textContent = q.text;
+    if (q.help) { $('q-help').textContent = q.help; $('q-help').hidden = false; } else { $('q-help').hidden = true; }
+
+    var current = state.answers[q.id];
+    $('q-options').innerHTML = q.options.map(function (o, i) {
+      var id = 'opt-' + q.id + '-' + i;
+      var checked = (current === o.v) ? ' checked' : '';
+      return '<div class="opt"><input type="radio" name="opt" id="' + id + '" value="' + i + '"' + checked + '><label for="' + id + '">' + esc(o.label) + '</label></div>';
+    }).join('');
+
+    var alone = $('q-alone');
+    alone.classList.remove('show');
+    if (q.notAlone) { alone.textContent = q.notAlone; alone.hidden = false; if (current !== undefined) alone.classList.add('show'); }
+    else { alone.hidden = true; alone.textContent = ''; }
+
+    $('back-btn').textContent = state.index === 0 ? 'Back to intro' : 'Back';
+    $('skip-btn').hidden = !q.optional;
+    $('next-btn').disabled = current === undefined;
+    $('next-btn').textContent = (state.index === qs.length - 1) ? 'See my results' : 'Next';
+
+    if (focus) $('q-text').focus({ preventScroll: true });
+    track('quiz_question', { q: q.id });
+  }
+
+  $('q-options').addEventListener('change', function (e) {
+    if (e.target.name !== 'opt') return;
+    var q = list()[state.index];
+    state.answers[q.id] = q.options[Number(e.target.value)].v;
+    // Clean up revenue answers if they no longer apply
+    if (q.id === 'Q2' && !(state.answers.Q2 === 2 || state.answers.Q2 === 3)) { delete state.answers.R1; delete state.answers.R2; }
+    $('next-btn').disabled = false;
+    if (q.notAlone) $('q-alone').classList.add('show');
+    var qs = list();
+    $('next-btn').textContent = (state.index === qs.length - 1) ? 'See my results' : 'Next';
+    save();
+  });
+
+  $('q-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var q = list()[state.index];
+    if (state.answers[q.id] === undefined && !q.optional) return;
+    state.index++;
+    save();
+    renderQuestion(true);
+  });
+
+  $('skip-btn').addEventListener('click', function () {
+    var q = list()[state.index];
+    delete state.answers[q.id];
+    state.index++;
+    save();
+    renderQuestion(true);
+  });
+
+  $('back-btn').addEventListener('click', function () {
+    if (state.index === 0) { show('screen-intro'); $('intro-title').focus({ preventScroll: true }); return; }
+    state.index--;
+    save();
+    renderQuestion(true);
+  });
+
+  $('start-btn').addEventListener('click', function () {
+    track('quiz_start');
+    show('screen-quiz');
+    renderQuestion(true);
+  });
+
+  // ---------- results ----------
+  function hoursPhrase(r) {
+    var lo = Math.max(1, r.hoursBack.low), hi = Math.max(1, r.hoursBack.high);
+    return lo === hi ? 'about ' + lo : 'about ' + lo + ' to ' + hi;
+  }
+
+  function finish() {
+    var a = state.answers;
+    var r = Q.score(a);
+    show('screen-results');
+    track('quiz_complete', { tier: r.tier });
+
+    // Headline
+    var h;
+    if (r.H < 1) h = 'Your week is in <em>good shape</em>.';
+    else if (r.tier === 'smooth') h = 'Your week is in good shape. Busywork takes about ' + Math.round(r.H) + ' hours a week.';
+    else h = 'Busywork takes about ' + Math.round(r.H) + ' hours a week. You could get back <em>' + hoursPhrase(r) + '</em> of them' + (r.timeFor ? ', time for ' + esc(r.timeFor) + '.' : '.');
+    $('r-headline').innerHTML = h;
+    $('r-verdict').innerHTML = '<strong>' + esc(r.tierInfo.name) + '.</strong> ' + esc(r.tierInfo.verdict);
+
+    // Stats
+    $('r-stats').innerHTML =
+      '<div class="stat"><span class="k">Hours lost a week</span><span class="v">' + r.H + '<small> hrs</small></span></div>' +
+      '<div class="stat"><span class="k">Busywork cost a month</span><span class="v">' + money(r.Cdisplay) + '</span></div>' +
+      '<div class="stat hl"><span class="k">Realistically recoverable</span><span class="v">' + money(r.R.low) + '&ndash;' + money(r.R.high) + '<small> /mo</small></span></div>';
+
+    $('r-money').textContent = r.H > 0
+      ? 'Busywork is costing roughly ' + money(r.Cdisplay) + ' a month. Realistically, about ' + money(r.R.low) + ' to ' + money(r.R.high) + ' of that is recoverable. These are estimates, not promises.'
+      : "Your answers don't show hours lost to repeat admin. That's rare, and worth keeping.";
+
+    // How we calculated this
+    var rows = Q.visibleQuestions(a).filter(function (q) { return q.type === 'scored'; }).map(function (q) {
+      var o = Q.optionFor(q.id, a[q.id]);
+      var hours = o && o.h ? o.h + (o.h === 1 ? ' hr' : ' hrs') : (o && o.h === 0 && ['Q8', 'Q9'].indexOf(q.id) === -1 ? '0 hrs' : 'friction only');
+      return '<tr><td>' + esc(q.text) + '<br><span class="small">' + esc(o ? o.label : '-') + '</span></td><td>' + hours + '</td></tr>';
+    }).join('');
+    var capped = (0.8 * r.rawHours) > r.cap;
+    $('r-calc-body').innerHTML =
+      '<p>1. We added up the weekly hours from your answers: <strong>' + r.rawHours + ' hrs</strong>.</p>' +
+      '<p>2. We took off 20% because some questions overlap (evening admin is often also invoicing): <strong>' + (Math.round(0.8 * r.rawHours * 10) / 10) + ' hrs</strong>' + (capped ? ', then capped it at ' + r.cap + ' hrs for your team size: <strong>' + r.H + ' hrs</strong>' : '') + '.</p>' +
+      '<p>3. Monthly cost = ' + r.H + ' hrs &times; $' + r.hourly + ' an hour &times; 4.33 weeks = <strong>about ' + money(r.Cdisplay) + '</strong>.</p>' +
+      '<p>4. Automation rarely removes all manual work, so the recoverable range is 50% to 70% of that, rounded to the nearest $100: <strong>' + money(r.R.low) + ' to ' + money(r.R.high) + '</strong>.</p>' +
+      '<p>Your friction score is ' + r.F + ' out of 30. It counts how much each answer depends on someone remembering, including the questions that don\'t carry hours.</p>' +
+      '<table><tbody>' + rows + '</tbody></table>';
+
+    // Missed revenue (separate, never in the headline)
+    if (r.M) {
+      $('r-missed').hidden = false;
+      $('r-missed').innerHTML = '<strong>Possible missed revenue: about ' + money(r.M.value) + (r.M.capped ? '+' : '') + ' a month.</strong> If about ' + Math.round(r.M.slipRate * 100) + '% of ' + a.R1 + ' monthly inquiries slip through, and 1 in 5 would have become a client worth about ' + money(a.R2) + '. This is a possibility, not part of the estimate above.';
+    } else { $('r-missed').hidden = true; }
+
+    // Leaks / tweaks
+    var wrap = $('r-leaks-wrap');
+    if (r.tier === 'smooth') {
+      var tips = r.topLeaks.map(function (l) { return l.diy; });
+      var fillers = [
+        'Write down the 3 tasks only you know how to do, so someone else could cover a week.',
+        "Once a quarter, list the tools you pay for and cancel one you don't use.",
+        'Keep a 15-minute weekly review: what slipped, and what to fix next.'
+      ];
+      while (tips.length < 3 && fillers.length) tips.push(fillers.shift());
+      wrap.innerHTML = '<h2>A few small tweaks to keep it that way</h2><ul class="tweaks">' + tips.slice(0, 3).map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>';
+    } else {
+      wrap.innerHTML = '<h2>Your top time leaks</h2><p style="color:var(--earth)">Where the most hours go, and what the week could look like instead.</p>' +
+        r.topLeaks.map(function (l, i) {
+          return '<article class="leak"><div class="leak-top"><h3>' + (i + 1) + '. ' + esc(l.name) + '</h3><span class="back">Could give back about ' + l.hoursBack + ' hrs a week</span></div>' +
+            '<p class="instead">' + esc(l.instead) + '</p>' +
+            '<dl><div><dt>Try this yourself</dt><dd>' + esc(l.diy) + '</dd></div><div><dt>What I\'d set up</dt><dd>' + esc(l.fix) + '</dd></div></dl>' +
+            '<a class="more" href="' + l.link + '">How this gets set up</a></article>';
+        }).join('');
+    }
+    $('r-alone').hidden = (r.tier === 'smooth');
+
+    // Next step
+    var next = $('r-next');
+    if (r.tierInfo.offerCall) {
+      next.innerHTML = '<h2>Want to talk it through?</h2>' +
+        (r.changeMessage ? '<p>' + esc(r.changeMessage) + '</p>' : '') +
+        '<p style="margin-top:1rem">Everything above is yours to use, whether or not we ever talk. If you\'d like a second set of eyes, I keep free 20-minute conversations open for exactly this. It\'s about your business and where your time goes, not my services.</p>' +
+        (r.callOpener ? '<p class="opener">I\'d probably start by asking: "' + esc(r.callOpener) + '"</p>' : '') +
+        '<div class="actions" style="margin-top:1.5rem"><a class="btn" href="' + BOOKING + '" id="book-link">Pick a time to talk</a></div>';
+    } else {
+      next.innerHTML = '<h2>You\'re in good shape</h2>' +
+        (r.changeMessage ? '<p>' + esc(r.changeMessage) + '</p>' : '') +
+        '<p style="margin-top:1rem">No call needed. If you\'d like a few more tips like these now and then, ask for the report below.</p>';
+    }
+    var bl = $('book-link');
+    if (bl) bl.addEventListener('click', function () { track('quiz_book_click', { tier: r.tier }); });
+
+    $('r-headline').focus({ preventScroll: true });
+
+    // Save the anonymous result once
+    if (!state.saved) {
+      state.saved = true;
+      save();
+      fetch('/api/quiz', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'response', answers: a }) })
+        .then(function (res) { return res.ok ? res.json() : null; })
+        .then(function (d) { if (d && d.id) { state.responseId = d.id; save(); } })
+        .catch(function () {});
+    }
+  }
+
+  // ---------- report form ----------
+  $('lead-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var msg = $('lead-msg');
+    var name = $('f-name').value.trim();
+    var email = $('f-email').value.trim();
+    msg.className = 'form-msg err';
+    if (!name) { msg.textContent = 'Please add your first name.'; $('f-name').focus(); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { msg.textContent = 'Please check your email address.'; $('f-email').focus(); return; }
+    if (!$('f-consent').checked) { msg.textContent = 'Please tick the box so I can send your report.'; $('f-consent').focus(); return; }
+
+    var btn = $('lead-btn');
+    btn.disabled = true; btn.textContent = 'Sending...';
+    msg.className = 'form-msg'; msg.textContent = '';
+    fetch('/api/quiz', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        action: 'lead', answers: state.answers, responseId: state.responseId,
+        firstName: name, email: email, business: $('f-biz').value.trim(),
+        consent: true, website: $('f-website').value
+      })
+    }).then(function (res) {
+      return res.json().catch(function () { return {}; }).then(function (d) { return { ok: res.ok, status: res.status, d: d }; });
+    }).then(function (x) {
+      if (!x.ok) throw new Error(x.status === 400 && x.d.error ? x.d.error : 'error');
+      track('quiz_optin');
+      msg.className = 'form-msg ok';
+      msg.textContent = x.d.emailed
+        ? 'Sent. Check your inbox for your full report.'
+        : "Got it. I'll email your full report within one business day.";
+      btn.textContent = 'Sent';
+    }).catch(function (err) {
+      btn.disabled = false; btn.textContent = 'Email my report';
+      msg.className = 'form-msg err';
+      msg.textContent = (err && err.message && err.message !== 'error' && err.message.indexOf('fetch') === -1)
+        ? err.message
+        : "That didn't go through. You can save or print your results instead, or email consultwithatwist@gmail.com.";
+    });
+  });
+
+  $('print-btn').addEventListener('click', function () { $('r-calc').open = true; window.print(); });
+  $('restart-btn').addEventListener('click', function () {
+    state = { answers: {}, index: 0, responseId: null, saved: false };
+    save();
+    show('screen-intro');
+    $('intro-title').focus({ preventScroll: true });
+  });
+
+  // ---------- resume ----------
+  load();
+  if (Q.isComplete(state.answers) && state.saved) finish();
+  else if (Object.keys(state.answers).length) { show('screen-quiz'); renderQuestion(false); }
+})();
+</script>
+</body>
+</html>

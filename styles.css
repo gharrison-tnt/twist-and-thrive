@@ -111,7 +111,7 @@ figcaption { font-size: 0.9rem; color: var(--bark); margin-top: 0.75rem; }
 
 /* problem rows */
 .rows { border-top: 1px solid var(--line); }
-.row { display: grid; grid-template-columns: 1fr 1.4fr 11rem; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.row { display: grid; grid-template-columns: 1fr 1.4fr 15rem; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid var(--line); align-items: baseline; }
 .row h3 { margin: 0; }
 .row p { color: var(--earth); }
 .row a { white-space: nowrap; font-weight: 500; justify-self: end; }
@@ -170,6 +170,33 @@ figcaption { font-size: 0.9rem; color: var(--bark); margin-top: 0.75rem; }
 .pkg ul li { margin-bottom: 0.35rem; }
 .pkg .btn-line { margin-top: auto; align-self: flex-start; }
 @media (max-width: 760px) { .packages { grid-template-columns: 1fr; } }
+.packages.three { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 980px) { .packages.three { grid-template-columns: 1fr; } }
+.pkg .for { font-weight: 500; color: var(--deep); }
+.pkg .incl { font-size: 0.92rem; color: var(--bark); margin: -0.75rem 0 1.25rem; }
+
+/* callout with a cited number */
+.callout { margin-top: 2.5rem; padding: 1.5rem 1.75rem; border-left: 2px solid var(--teal-bright); background: var(--cream); border-radius: 0 12px 12px 0; max-width: 46rem; }
+.callout p { color: var(--earth); }
+.callout strong { color: var(--deep); font-weight: 500; }
+.callout .src { font-size: 0.88rem; color: var(--bark); margin-top: 0.75rem; }
+
+/* three short facts */
+.expect { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+.expect h3 { font-size: 1.4rem; }
+.expect p { color: var(--earth); font-size: 0.98rem; }
+@media (max-width: 860px) { .expect { grid-template-columns: 1fr; gap: 1.75rem; } }
+
+/* quiz promo strip */
+.quiz-strip { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap; border: 1px solid var(--line); border-radius: 14px; padding: 1.5rem 1.75rem; background: #fff; }
+.quiz-strip h3 { margin: 0 0 0.25rem; }
+.quiz-strip p { color: var(--earth); margin: 0; }
+
+/* background + quote */
+.why { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: start; }
+.why blockquote { font-family: var(--serif); font-size: 1.35rem; line-height: 1.5; color: var(--deep); border-left: 2px solid var(--teal-bright); padding-left: 1.5rem; }
+.why cite { display: block; font-family: var(--sans); font-style: normal; font-size: 0.92rem; color: var(--bark); margin-top: 1rem; }
+@media (max-width: 860px) { .why { grid-template-columns: 1fr; gap: 2rem; } }
 
 /* steps (true sequence) */
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; counter-reset: step; list-style: none; }

@@ -1,6 +1,6 @@
 # Twist & Thrive Systems
 
-> Twist & Thrive Systems is a one-person practice in Boulder County, Colorado, run by Gina Harrison. It builds client systems, websites, and pricing for small independent businesses: intake forms, booking, automated follow-up, client portals, and service packages. Pricing is fixed per deliverable, never hourly. Every engagement starts with a free 20-minute Discovery Call.
+> Twist & Thrive Systems is a one-person practice in Boulder County, Colorado, run by Gina Harrison. It builds booking and client systems, websites, and pricing for small independent businesses: intake forms, booking, automated follow-up, client portals, and service packages. Pricing is fixed per deliverable, never hourly. Every engagement starts with a free 20-minute Discovery Call.
 
 Founder: Gina Harrison. 15+ years in customer experience and operations at Conga, Movable Ink, and Swrve. Certified Dementia Practitioner.
 Location: Boulder County, CO. Serves Boulder, Lafayette, Louisville, Denver, and remote clients across the US.
@@ -8,31 +8,28 @@ Contact: consultwithatwist@gmail.com. Book a call: https://calendly.com/twistand
 
 ## Pricing
 - Discovery Call: free, 20 minutes.
-- Clarity Audit: $450 on its own; included with any package or custom build started within 30 days.
-- Online booking setup: $200. Booking connected to your calendar, with confirmations that send themselves.
-- Payment link and receipt: $250. A payment link for a service or deposit, with a confirmation email.
-- Price sheet or service menu: $300. Your services and prices, designed so people can actually read them.
-- Link-in-bio page: $300. A simple page for your Instagram that sends people straight to booking.
-- Intake form: $350. One form that collects what you need and lands it in one place, with an automatic confirmation email.
-- Follow-up email sequence: $400. Up to three emails: reminders, check-ins, or a nudge to rebook.
-- Client welcome packet: $400. A branded, reusable packet you send every new client instead of rewriting it.
-- One website page: $450. One page, written in your voice and built. A new service, an about page, a landing page.
-- Get Paid What You're Worth: from $1,200. For owners who set their prices once and haven't touched them since.
-- Get In Front of the Right People: from $1,500. For owners who know who they help but can't reach them consistently.
-- Get Found: from $2,000. For owners whose website doesn't match their work, or who don't have one.
-- Get Organized: from $2,200. For owners whose days fill up with scheduling and follow-up instead of clients.
+- Time Leak Quiz: free 3-minute self-check at https://twistandthrive.com/quiz. Estimates hours and dollars lost to manual work and names the top time leaks. No email needed for results.
+- Booking with reminders: $200. Services, prices, and availability set up in a booking tool connected to your calendar, with confirmations and reminders that send themselves.
+- Clarity Audit: $450 on its own; included with any of the three offers or a custom build started within 30 days.
+- Stop Losing Appointments: from $2,200. Online booking, automatic reminders, deposits or card on file, intake form, rebooking email, and a simple tracker.
+- Get Paid What You're Worth: from $1,200. Local price comparison, new package and price structure, client-facing price sheet, and talking points for raising rates.
+- Get Found: from $2,000. A website up to 3 pages written in your voice, with booking built in, a link-in-bio page, and search setup.
+- Single small builds (intake form, payment link, one page): usually $200 to $450, quoted on the call.
+- Outreach and launch planning: on request, from $1,500.
 - Custom Builds (portals, apps, dashboards): from $6,500, most between $6,500 and $15,000. 50% to start, 50% on delivery.
-- Monthly Access: Essentials $750/month, Partner $1,800/month. Three-month minimum.
+- Monthly Access: $750/month. A monthly check-in, fixes when something breaks, and one small build or update each month. Three-month minimum. Larger plans on request.
 - Payments over $1,000 can be split into two or three installments.
+- Delivery dates are set in each written scope.
 
 ## Pages
 - [Home](https://twistandthrive.com/)
 - [Pricing](https://twistandthrive.com/pricing)
+- [Time Leak Quiz](https://twistandthrive.com/quiz)
 - [Services](https://twistandthrive.com/services)
-- [Client systems and automation](https://twistandthrive.com/services/client-systems)
-- [Websites and brand](https://twistandthrive.com/services/websites)
-- [Pricing and offer design](https://twistandthrive.com/services/pricing-and-offers)
-- [Go-to-market](https://twistandthrive.com/services/go-to-market)
+- [Stop Losing Appointments: booking and client systems](https://twistandthrive.com/services/client-systems)
+- [Get Found: websites](https://twistandthrive.com/services/websites)
+- [Get Paid What You're Worth: pricing and offers](https://twistandthrive.com/services/pricing-and-offers)
+- [Outreach and launch planning](https://twistandthrive.com/services/go-to-market)
 - [Work](https://twistandthrive.com/work)
 - [K5 Dog Services client portal](https://twistandthrive.com/work/k5-dog-services)
 - [Nurture Sync doula scheduling app](https://twistandthrive.com/work/nurture-sync)
