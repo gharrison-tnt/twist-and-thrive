@@ -90,3 +90,14 @@ test('honeypot submissions are silently ignored', () => withEnv({}, async () => 
   assert.equal(r.status, 200);
   assert.equal(r.body.emailed, false);
 }));
+
+test('report email keeps the how-to for the call unless the owner is running smoothly', () => {
+  const Q = require('../quiz-scoring.js');
+  const lead = { firstName: 'Ana', email: 'ana@example.com' };
+  const busy = handler.reportEmail(lead, answers, Q.score(answers));
+  assert.doesNotMatch(busy.html, /Try this yourself/);
+  assert.match(busy.html, /What I'd set up/);
+  const calm = { A1: 'service', A2: 'small', A3: 40, Q1: 1, Q2: 0, Q3: 0, Q4: 0, Q5: 0, Q6: 0, Q7: 0, Q8: 0, Q9: 0, Q10: 0, Q11: 'ready', Q12: 'rest' };
+  const smooth = handler.reportEmail(lead, calm, Q.score(calm));
+  assert.match(smooth.html, /Try this yourself/);
+});

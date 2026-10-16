@@ -113,6 +113,8 @@
   .leak dl div { display: grid; grid-template-columns: 9.5rem 1fr; gap: 0.75rem; font-size: 0.97rem; }
   .leak dt { color: var(--bark); }
   @media (max-width: 560px) { .leak dl div { grid-template-columns: 1fr; gap: 0.1rem; } }
+  .leak .bench { margin-top: 0.75rem; padding: 0.7rem 0.9rem; background: var(--teal-pale); border-radius: 8px; font-size: 0.95rem; color: var(--deep); }
+  .leak .bench a { font-size: 0.88rem; }
   .leak .more { display: inline-block; margin-top: 0.9rem; font-size: 0.95rem; font-weight: 500; }
   .tweaks { margin: 1rem 0 0 1.15rem; color: var(--earth); }
   .tweaks li { margin-bottom: 0.5rem; }
@@ -237,8 +239,8 @@
       <div class="next-box" id="r-next"></div>
 
       <div class="report" id="r-report">
-        <h2>Want your full report with step-by-step fixes?</h2>
-        <p class="sub">I'll email it to you. Your numbers, your top time leaks, and simple fixes you can try on your own.</p>
+        <h2>Want your full report?</h2>
+        <p class="sub">I'll email your numbers and your top time leaks, with what I'd set up for each one.</p>
         <form id="lead-form" novalidate>
           <div class="fields">
             <div class="field"><label for="f-name">First name</label><input id="f-name" name="firstName" autocomplete="given-name" required></div>
@@ -279,14 +281,14 @@
   <div class="wrap">
     <div>
       <p class="name">Twist &amp; Thrive Systems</p>
-      <p>Booking, client systems, websites, and pricing for small independent businesses. Built by Gina Harrison in Boulder County, Colorado.</p>
+      <p>Intake, dashboards, automation, and event sites for small independent businesses. Built by Gina Harrison in Boulder County, Colorado.</p>
       <p style="margin-top:1rem"><a href="mailto:consultwithatwist@gmail.com">consultwithatwist@gmail.com</a></p>
     </div>
     <ul aria-label="Services">
-      <li><a href="/services/client-systems">Stop Losing Appointments</a></li>
-      <li><a href="/services/pricing-and-offers">Get Paid What You're Worth</a></li>
-      <li><a href="/services/websites">Get Found</a></li>
-      <li><a href="/work">Custom builds</a></li>
+      <li><a href="/services/client-systems">Intake and dashboards</a></li>
+      <li><a href="/services/events">Events</a></li>
+      <li><a href="/services/websites">Websites</a></li>
+      <li><a href="/services/pricing-and-offers">Pricing and offers</a></li>
       <li><a href="/quiz">Time Leak Quiz</a></li>
     </ul>
     <ul aria-label="More">
@@ -473,12 +475,13 @@
       while (tips.length < 3 && fillers.length) tips.push(fillers.shift());
       wrap.innerHTML = '<h2>A few small tweaks to keep it that way</h2><ul class="tweaks">' + tips.slice(0, 3).map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>';
     } else {
-      wrap.innerHTML = '<h2>Your top time leaks</h2><p style="color:var(--earth)">Where the most hours go, and what the week could look like instead.</p>' +
+      wrap.innerHTML = '<h2>Your top time leaks</h2><p style="color:var(--earth)">Where the most hours go, what the week could look like instead, and how I\'d set it up.</p>' +
         r.topLeaks.map(function (l, i) {
           return '<article class="leak"><div class="leak-top"><h3>' + (i + 1) + '. ' + esc(l.name) + '</h3><span class="back">Could give back about ' + l.hoursBack + ' hrs a week</span></div>' +
             '<p class="instead">' + esc(l.instead) + '</p>' +
-            '<dl><div><dt>Try this yourself</dt><dd>' + esc(l.diy) + '</dd></div><div><dt>What I\'d set up</dt><dd>' + esc(l.fix) + '</dd></div></dl>' +
-            '<a class="more" href="' + l.link + '">How this gets set up</a></article>';
+            (l.benchmark ? '<p class="bench">' + esc(l.benchmark.text) + ' <a href="' + l.benchmark.url + '" rel="noopener">' + esc(l.benchmark.source) + '</a></p>' : '') +
+            '<dl><div><dt>What I\'d set up</dt><dd>' + esc(l.fix) + '</dd></div><div><dt>Where it fits</dt><dd>' + esc(l.level) + '</dd></div></dl>' +
+            '<a class="more" href="' + l.link + '">See ' + esc(l.level) + '</a></article>';
         }).join('');
     }
     $('r-alone').hidden = (r.tier === 'smooth');

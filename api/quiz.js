@@ -119,12 +119,14 @@ function esc(s) {
 
 function reportEmail(lead, answers, result) {
   const leaks = result.topLeaks;
+  const smooth = result.tier === 'smooth'; // only the running-smoothly tier gets do-it-yourself tips
   const leakHtml = leaks.map((l) => `
     <tr><td style="padding:14px 0;border-bottom:1px solid #e6dfd3">
       <strong style="font-size:16px;color:#2E2318">${esc(l.name)}</strong>
       <span style="color:#6B5C4E"> · could give back about ${l.hoursBack} hrs a week</span>
       <p style="margin:6px 0 0;color:#5C4A3A">${esc(l.instead)}</p>
-      <p style="margin:6px 0 0;color:#2E2318"><strong>Try this yourself:</strong> ${esc(l.diy)}</p>
+      ${l.benchmark ? `<p style="margin:8px 0 0;color:#2E2318;font-size:14px">${esc(l.benchmark.text)} <a href="${esc(l.benchmark.url)}" style="color:#3E8676">${esc(l.benchmark.source)}</a></p>` : ''}
+      <p style="margin:6px 0 0;color:#2E2318"><strong>${smooth ? 'Try this yourself' : "What I'd set up"}:</strong> ${esc(smooth ? l.diy : l.fix)}</p>
     </td></tr>`).join('');
 
   const headline = result.H > 0
@@ -155,7 +157,7 @@ function reportEmail(lead, answers, result) {
     `Hi ${lead.firstName},`, '', "Here's your full Time Leak Quiz report.", '', headline,
     `Busywork is costing roughly ${Quiz.money(result.Cdisplay)} a month. Realistically, about ${Quiz.money(result.R.low)} to ${Quiz.money(result.R.high)} of that is recoverable.`,
     '', `${result.tierInfo.name}. ${result.tierInfo.verdict}`, '',
-    ...leaks.map((l) => `- ${l.name} (could give back about ${l.hoursBack} hrs a week)\n  ${l.instead}\n  Try this yourself: ${l.diy}`),
+    ...leaks.map((l) => `- ${l.name} (could give back about ${l.hoursBack} hrs a week)\n  ${l.instead}${l.benchmark ? '\n  ' + l.benchmark.text + ' (' + l.benchmark.source + ')' : ''}\n  ${smooth ? 'Try this yourself: ' + l.diy : "What I'd set up: " + l.fix}`),
     result.tierInfo.offerCall ? `\nWant to talk it through? Pick a time: ${BOOKING_URL()}` : '',
     '', 'Gina Harrison', 'Twist & Thrive Systems', '',
     'To stop hearing from me, reply with "unsubscribe".', env('MAILING_ADDRESS')

@@ -261,3 +261,51 @@ footer li { margin-bottom: 0.4rem; }
 footer .name { font-family: var(--serif); font-size: 1.35rem; color: var(--cream); margin-bottom: 0.5rem; }
 footer .legal { grid-column: 1 / -1; border-top: 1px solid rgba(245, 240, 232, 0.15); padding-top: 1.5rem; margin-top: 1rem; font-size: 0.85rem; }
 @media (max-width: 760px) { footer .wrap { grid-template-columns: 1fr; } }
+
+/* five levels */
+.levels-list { border-top: 1px solid var(--line); }
+.level { display: grid; grid-template-columns: 15rem 1fr 15rem; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid var(--line); align-items: start; scroll-margin-top: 90px; }
+.level-name { display: grid; gap: 0.35rem; }
+.level-num { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); }
+.level h3 { margin: 0; font-size: 1.6rem; }
+.level .price { font-family: var(--serif); font-size: 1.45rem; font-weight: 500; color: var(--deep); }
+.level .for { color: var(--deep); font-weight: 500; }
+.level ul { margin: 0.6rem 0 0 1.1rem; color: var(--earth); }
+.level ul li { margin-bottom: 0.3rem; }
+.level .plus { font-size: 0.92rem; color: var(--bark); margin-top: 0.5rem; }
+.built { display: grid; gap: 0.5rem; font-size: 0.95rem; }
+.built strong { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bark); }
+.built span { display: block; padding: 0.55rem 0.8rem; background: var(--cream); border: 1px solid var(--line); border-radius: 8px; color: var(--earth); }
+.built span b { font-weight: 500; color: var(--deep); }
+@media (max-width: 900px) { .level { grid-template-columns: 1fr; gap: 1rem; } }
+
+/* how real projects stack up */
+.stack { border: 1px solid var(--line); border-radius: 14px; background: var(--cream); overflow-x: auto; }
+.stack-grid { display: grid; grid-template-columns: minmax(11rem, 1.3fr) repeat(5, minmax(4.5rem, 1fr)); min-width: 600px; }
+.stack-grid > div { padding: 0.8rem 0.9rem; border-bottom: 1px solid var(--line); font-size: 0.95rem; }
+.stack-grid .hd { font-size: 0.8rem; font-weight: 500; color: var(--bark); background: var(--sand-mid); }
+.stack-grid .proj { font-weight: 500; }
+.stack-grid .proj small { display: block; font-weight: 400; color: var(--bark); font-size: 0.85rem; }
+.stack-grid .cell { display: flex; align-items: center; }
+.stack-grid .cell i { display: block; height: 0.65rem; width: 100%; border-radius: 999px; background: var(--teal); }
+.stack-grid .cell i.next { background: transparent; border: 1.5px dashed var(--teal); }
+.stack-grid .last { border-bottom: 0; }
+
+/* add-ons */
+.addons { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+.addon { background: var(--cream); border: 1px solid var(--line); border-radius: 14px; padding: 1.5rem; display: grid; gap: 0.5rem; align-content: start; }
+.addon h3 { margin: 0; font-size: 1.35rem; }
+.addon .price { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; }
+.addon p { color: var(--earth); font-size: 0.98rem; }
+@media (max-width: 760px) { .addons { grid-template-columns: 1fr; } }
+
+/* comparison */
+.compare { width: 100%; border-collapse: collapse; min-width: 640px; }
+.compare th, .compare td { text-align: left; vertical-align: top; padding: 0.9rem 0.75rem 0.9rem 0; border-bottom: 1px solid var(--line); font-size: 0.97rem; }
+.compare th { font-size: 0.85rem; font-weight: 500; color: var(--bark); }
+.compare td:first-child { font-weight: 500; color: var(--deep); }
+.compare td { color: var(--earth); }
+.compare tr.us td { color: var(--deep); background: var(--teal-pale); }
+.compare tr.us td:first-child { padding-left: 0.75rem; }
+.expect.four { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 860px) { .expect.four { grid-template-columns: 1fr; } }

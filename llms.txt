@@ -1,34 +1,35 @@
 # Twist & Thrive Systems
 
-> Twist & Thrive Systems is a one-person practice in Boulder County, Colorado, run by Gina Harrison. It builds booking and client systems, websites, and pricing for small independent businesses: intake forms, booking, automated follow-up, client portals, and service packages. Pricing is fixed per deliverable, never hourly. Every engagement starts with a free 20-minute Discovery Call.
+> Twist & Thrive Systems is a one-person practice in Boulder County, Colorado, run by Gina Harrison. It builds intake forms, client dashboards, automation, event sites, and websites for small independent businesses, in five levels that build on each other. Pricing is fixed per deliverable, never hourly. Every engagement starts with a free 20-minute Discovery Call.
 
 Founder: Gina Harrison. 15+ years in customer experience and operations at Conga, Movable Ink, and Swrve. Certified Dementia Practitioner.
 Location: Boulder County, CO. Serves Boulder, Lafayette, Louisville, Denver, and remote clients across the US.
 Contact: consultwithatwist@gmail.com. Book a call: https://calendly.com/twistandthrivesystems
 
 ## Pricing
+Five levels that build on each other. Each level includes everything before it.
+- Time Leak Quiz: free 3-minute self-check at https://twistandthrive.com/quiz. No email needed for results.
 - Discovery Call: free, 20 minutes.
-- Time Leak Quiz: free 3-minute self-check at https://twistandthrive.com/quiz. Estimates hours and dollars lost to manual work and names the top time leaks. No email needed for results.
-- Booking with reminders: $200. Services, prices, and availability set up in a booking tool connected to your calendar, with confirmations and reminders that send themselves.
-- Clarity Audit: $450 on its own; included with any of the three offers or a custom build started within 30 days.
-- Stop Losing Appointments: from $2,200. Online booking, automatic reminders, deposits or card on file, intake form, rebooking email, and a simple tracker.
-- Get Paid What You're Worth: from $1,200. Local price comparison, new package and price structure, client-facing price sheet, and talking points for raising rates.
-- Get Found: from $2,000. A website up to 3 pages written in your voice, with booking built in, a link-in-bio page, and search setup.
-- Single small builds (intake form, payment link, one page): usually $200 to $450, quoted on the call.
-- Outreach and launch planning: on request, from $1,500.
-- Custom Builds (portals, apps, dashboards): from $6,500, most between $6,500 and $15,000. 50% to start, 50% on delivery.
-- Monthly Access: $750/month. A monthly check-in, fixes when something breaks, and one small build or update each month. Three-month minimum. Larger plans on request.
-- Payments over $1,000 can be split into two or three installments.
-- Delivery dates are set in each written scope.
+- Clarity Audit: $450; credited in full toward any level started within 30 days.
+- Level 1, Intake: from $2,500. Branded intake or application form linked from Instagram or a website, one queue, automatic confirmation, approve or decline. Example: K5 Dog Services.
+- Level 2, Dashboard: from $4,500. Client records, statuses, services assigned, notes. Examples: Reclaim & Renew, Nurture Sync.
+- Level 3, Checks and balances: from $7,000. Approvals and sign-offs, matching against availability, handoffs between people, document review. Example: K5 Dog Services matching and document scanning.
+- Level 4, Automate: from $9,500. Reminders, notifications, editable lifecycle emails, status updates.
+- Level 5, Full system: from $14,000. Multiple user types, outside reviewers, scoring, reporting, settings.
+- Add-ons, any level: Payments (Stripe) from $750; Website from $2,000 for up to 3 pages; Brand basics from $1,000; Pricing and offers from $1,200. Outreach and launch planning on request.
+- Hosting and care: from $150/month. Monthly Access (ongoing builds): from $750/month, three-month minimum.
+- Payments over $1,000 can be split into two or three installments. Delivery dates are set in each written scope.
+- Does not build systems that store people's medical or health records.
 
 ## Pages
 - [Home](https://twistandthrive.com/)
 - [Pricing](https://twistandthrive.com/pricing)
 - [Time Leak Quiz](https://twistandthrive.com/quiz)
 - [Services](https://twistandthrive.com/services)
-- [Stop Losing Appointments: booking and client systems](https://twistandthrive.com/services/client-systems)
-- [Get Found: websites](https://twistandthrive.com/services/websites)
-- [Get Paid What You're Worth: pricing and offers](https://twistandthrive.com/services/pricing-and-offers)
+- [Intake and dashboards](https://twistandthrive.com/services/client-systems)
+- [Events](https://twistandthrive.com/services/events)
+- [Websites](https://twistandthrive.com/services/websites)
+- [Pricing and offers](https://twistandthrive.com/services/pricing-and-offers)
 - [Outreach and launch planning](https://twistandthrive.com/services/go-to-market)
 - [Work](https://twistandthrive.com/work)
 - [K5 Dog Services client portal](https://twistandthrive.com/work/k5-dog-services)

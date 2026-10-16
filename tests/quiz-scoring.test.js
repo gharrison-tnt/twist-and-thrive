@@ -99,3 +99,14 @@ test('sanitizeAnswers drops unknown keys and values', () => {
 test('same answers always give the same result', () => {
   assert.deepEqual(Q.score(worked), Q.score(JSON.parse(JSON.stringify(worked))));
 });
+
+test('leaks with real data carry a sourced benchmark, others carry none', () => {
+  const withData = ['Q2', 'Q3', 'Q4'];
+  Object.keys(Q.LEAKS).forEach((id) => {
+    const b = Q.LEAKS[id].benchmark;
+    if (withData.includes(id)) { assert.ok(b && b.text && b.source && /^https:\/\//.test(b.url), id); }
+    else assert.equal(b, undefined, id);
+  });
+  const r = Q.score(worked);
+  assert.equal(r.topLeaks.find((l) => l.id === 'Q2').benchmark.source, 'MyTime booking data, 2014');
+});
